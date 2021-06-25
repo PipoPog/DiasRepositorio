@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="824.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Jogadores.JogadoresController">
+<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="824.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.JogadoresController">
    <children>
       <Label layoutX="288.0" layoutY="9.0" prefHeight="38.0" prefWidth="282.0" text="Gestão De Jogadores">
          <font>

@@ -56,7 +56,7 @@ public class MenuPrincipalController implements Initializable {
         abrirJanela("/Views/Clubes.fxml", event);
     }
      @FXML
-    private void Jogadores(ActionEvent event) throws IOException {
+    private void Jogador(ActionEvent event) throws IOException {
         abrirJanela("/Views/Jogadores.fxml", event);
     }
     private void Jogo(ActionEvent event) throws IOException {
