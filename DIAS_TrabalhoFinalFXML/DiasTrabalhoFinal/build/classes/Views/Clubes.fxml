@@ -6,26 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="824.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ClubesController">
+<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="824.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ClubesController">
    <children>
       <Label layoutX="307.0" layoutY="9.0" prefHeight="38.0" prefWidth="282.0" text="Gestão De Clubes">
          <font>
             <Font size="26.0" />
          </font></Label>
-      <Button fx:id="btnUK" layoutX="-6.0" layoutY="1.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="97.0" styleClass="bodybg">
-         <stylesheets>
-            <URL value="@UKFlag.css" />
-            <URL value="@../com/mycompany/projetofinaldias/Menus/Linguagem/UKFlag.css" />
-         </stylesheets></Button>
-      <Button fx:id="btnPT" layoutX="93.0" layoutY="1.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="98.0" styleClass="bodybg">
-         <stylesheets>
-            <URL value="@Portugal.css" />
-            <URL value="@../com/mycompany/projetofinaldias/Menus/Linguagem/Portugal.css" />
-         </stylesheets></Button>
       <Button fx:id="btnVoltar" layoutX="295.0" layoutY="429.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Voltar" />
-      <Button fx:id="btnRemoverClubes" layoutX="552.0" layoutY="81.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Remover Clubes" />
-      <Button fx:id="btnEditarDadosClubes" layoutX="552.0" layoutY="163.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Editar Dados de Clubes" />
-      <Button fx:id="btnConsultarClubes" layoutX="50.0" layoutY="169.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Consultar Clubes" />
+      <Button fx:id="btnConsultarClubes" layoutX="556.0" layoutY="87.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Consultar Clubes" />
       <Button fx:id="btnAdicionarClubes" layoutX="50.0" layoutY="87.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Adicionar Clubes" />
    </children>
    <stylesheets>

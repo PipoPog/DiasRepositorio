@@ -1,29 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ArbitroController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ArbitroController">
    <children>
-      <AnchorPane prefHeight="547.0" prefWidth="824.0" styleClass="bodybg" stylesheets="@../com/mycompany/projetofinaldias/Menus/Linguagem/Superliga.css">
-         <children>
-            <Button fx:id="btnUK" mnemonicParsing="false" prefHeight="54.0" prefWidth="97.0" styleClass="bodybg">
-               <stylesheets>
-                  <URL value="@../clubes/UKFlag.css" />
-                  <URL value="@../com/mycompany/projetofinaldias/Menus/Linguagem/UKFlag.css" />
-               </stylesheets>
-            </Button>
-            <Button fx:id="btnPT" layoutX="97.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="98.0" styleClass="bodybg">
-               <stylesheets>
-                  <URL value="@../clubes/Portugal.css" />
-                  <URL value="@../com/mycompany/projetofinaldias/Menus/Linguagem/Portugal.css" />
-               </stylesheets>
-            </Button>
-         </children>
-      </AnchorPane>
+      <AnchorPane prefHeight="547.0" prefWidth="824.0" styleClass="bodybg" stylesheets="@Superliga.css" />
       <Button fx:id="btnAdicionarArbitro" layoutX="24.0" layoutY="97.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Adicionar Árbitro" />
       <Button fx:id="btnConsultarArbitro" layoutX="549.0" layoutY="97.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Consultar Árbitro" />
       <Button fx:id="btnVoltar" layoutX="305.0" layoutY="439.0" mnemonicParsing="false" onAction="#voltar" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Voltar" />

@@ -25,12 +25,6 @@ import javafx.stage.Stage;
 public class MenuPrincipalController implements Initializable {
 
   @FXML
-  private Button btnUK;
-  @FXML
-  private Button btnPT;
-  @FXML
-  private Button btnLiga;
-  @FXML
   private Button btnJogadores;
   @FXML
   private Button btnArbitros;
@@ -63,9 +57,8 @@ public class MenuPrincipalController implements Initializable {
     }
      @FXML
     private void Jogadores(ActionEvent event) throws IOException {
-        abrirJanela("/Views/Jogadoress.fxml", event);
+        abrirJanela("/Views/Jogadores.fxml", event);
     }
-     @FXML
     private void Jogo(ActionEvent event) throws IOException {
         abrirJanela("/Views/Jogo.fxml", event);
     }

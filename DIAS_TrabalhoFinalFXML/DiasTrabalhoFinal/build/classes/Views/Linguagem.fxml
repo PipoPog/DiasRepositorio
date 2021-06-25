@@ -11,9 +11,6 @@
          <font>
             <Font size="26.0" />
          </font></Label>
-      <Button fx:id="btnUK" layoutX="-6.0" layoutY="1.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="97.0" styleClass="bodybg" stylesheets="@UKFlag.css" />
-      <Button fx:id="btnPT" layoutX="93.0" layoutY="1.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="98.0" styleClass="bodybg" stylesheets="@Portugal.css" />
-      <Button fx:id="btnLiga" layoutX="295.0" layoutY="429.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Liga" />
       <Button fx:id="btnJogadores" layoutX="539.0" layoutY="87.0" mnemonicParsing="false" onAction="#Jogadores" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Jogadores" />
       <Button fx:id="btnArbitros" layoutX="539.0" layoutY="169.0" mnemonicParsing="false" onAction="#Arbitro" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Árbitros" />
       <Button fx:id="btnClubes" layoutX="14.0" layoutY="169.0" mnemonicParsing="false" onAction="#Clubes" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Clubes" />

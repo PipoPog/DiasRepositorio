@@ -9,25 +9,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="824.0" styleClass="bodybg" stylesheets="@../../com/mycompany/projetofinaldias/Menus/Linguagem/Superliga.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ConsultarJogadoresController">
+<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="824.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ConsultarJogadoresController">
    <children>
       <Label layoutX="288.0" layoutY="9.0" prefHeight="38.0" prefWidth="282.0" text="Gestão De Jogadores">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Button fx:id="btnUK" layoutX="-6.0" layoutY="1.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="97.0" styleClass="bodybg">
-         <stylesheets>
-            <URL value="@../UKFlag.css" />
-            <URL value="@../../com/mycompany/projetofinaldias/Menus/Linguagem/UKFlag.css" />
-         </stylesheets>
-      </Button>
-      <Button fx:id="btnPT" layoutX="93.0" layoutY="1.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="98.0" styleClass="bodybg">
-         <stylesheets>
-            <URL value="@../Portugal.css" />
-            <URL value="@../../com/mycompany/projetofinaldias/Menus/Linguagem/Portugal.css" />
-         </stylesheets>
-      </Button>
       <Button fx:id="btnVoltar" layoutX="618.0" layoutY="494.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Voltar" />
       <TableView fx:id="idTableView" layoutX="84.0" layoutY="131.0" prefHeight="311.0" prefWidth="654.0">
         <columns>
@@ -43,7 +31,10 @@
       </TableView>
       <TextField fx:id="idTxtPesquisar" layoutX="161.0" layoutY="93.0" prefHeight="26.0" prefWidth="576.0" />
       <Button fx:id="idBtnPesquisar" layoutX="84.0" layoutY="93.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="Pesquisar:" />
-      <Button fx:id="btnRemoverJogador" layoutX="308.0" layoutY="461.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Remover Jogador" />
       <Button fx:id="btnEditarJogador" layoutX="84.0" layoutY="461.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Editar Jogador" />
    </children>
+   <stylesheets>
+      <URL value="@../../com/mycompany/projetofinaldias/Menus/Linguagem/Superliga.css" />
+      <URL value="@Superliga.css" />
+   </stylesheets>
 </AnchorPane>

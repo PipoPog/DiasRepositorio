@@ -5,10 +5,37 @@
  */
 package diastrabalhofinal;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 /**
  *
  * @author lucpe
  */
 public class InteracaoBD {
-  
+   // Variaveis base de dados
+    private final String Driver = "com.mysql.jdbc.Driver";
+    private final String dbURL = "jdbc:sqlserver://localhost\\sqlexpress";
+
+
+public Connection conectarBaseDados() throws SQLException {
+
+        Connection Conexao = null;
+
+        try {
+
+            Class.forName(Driver);
+
+        } catch (ClassNotFoundException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        Conexao = DriverManager.getConnection(dbURL);
+        return Conexao;
+
+
+    }
 }

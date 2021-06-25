@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="DiasTrabalhoFinal.jar" size="111024" download="eager" />
+    <jar href="DiasTrabalhoFinal.jar" size="1397038" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="diastrabalhofinal.DiasTrabalhoFinal"  name="DiasTrabalhoFinal" />
   <update check="always"/>

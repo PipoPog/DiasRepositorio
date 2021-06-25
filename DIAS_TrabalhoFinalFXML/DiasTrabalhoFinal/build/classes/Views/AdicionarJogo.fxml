@@ -6,10 +6,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="824.0" styleClass="bodybg" stylesheets="@../../com/mycompany/projetofinaldias/Menus/Linguagem/Superliga.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CriarJogadorController">
+<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="824.0" styleClass="bodybg" stylesheets="@Superliga.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CriarJogadorController">
    <children>
-      <Button fx:id="btnUK" layoutY="1.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="97.0" styleClass="bodybg" stylesheets="@../../com/mycompany/projetofinaldias/Menus/Linguagem/UKFlag.css" />
-      <Button fx:id="btnPT" layoutX="98.0" layoutY="1.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="98.0" styleClass="bodybg" stylesheets="@../../com/mycompany/projetofinaldias/Menus/Linguagem/Portugal.css" />
       <Label layoutX="314.0" layoutY="14.0" prefHeight="38.0" prefWidth="175.0" text="Adicionar Jogo">
          <font>
             <Font size="26.0" />
