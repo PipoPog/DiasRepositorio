@@ -27,7 +27,7 @@ public class InteracaoBD{
     private static String queryAdicionarJogo = "INSERT INTO Jogo"
             + "(cod_jornada, equip_casa, equip_fora, result_equipcasa, result_equipfora, local,classificacaocasa, classificacaofora) VALUES"
             + "(?,?,?,?,?,?,?,?)";
-     private static String queryAdicionarArbitro = "INSERT INTO Arbitro"
+     private static String queryAdicionarArbitro = "INSERT INTO Arbitros"
             + "(cod_jogo, nome) VALUES"
             + "(?,?)";
      private static String queryAdicionarCartao = "INSERT INTO Cartoes"
