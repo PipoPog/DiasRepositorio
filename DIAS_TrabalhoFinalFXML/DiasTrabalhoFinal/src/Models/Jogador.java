@@ -1,6 +1,7 @@
 package Models;
 
 import java.util.ArrayList;
+import javafx.scene.control.DatePicker;
 
 /**
  *Class jogador
@@ -8,43 +9,42 @@ import java.util.ArrayList;
  */
 public class Jogador {
     
-   
-    private String nome;
     private int codClube;
-    private int idade;
+    private String nome;
+    private DatePicker dataNascimento;
     private String posicao;
     private String nacionalidade;
-    private String nomeClube;
-    private ArrayList<Jogo> estatisticas;
     private String peDom;
-    private ArrayList<Jogo> historicoClube;
+  
     
-    /**
-     * Metodo que premite criar um jogador
-     * 
-     * @param nome nome
-     * @param codClube codigo clube
-     * @param idade idade
-     * @param posicao posicao
-     * @param nacionalidade nacionalidade
-     * @param nomeClube nome do clube
-     * @param estatistica estatistica
-     * @param peDom pe dominante
-     * @param historicoClube historico de clubes
-     */
-    public Jogador(String nome, int codClube, int idade, String posicao, String nacionalidade, String nomeClube, ArrayList<Jogo> estatistica, String peDom, ArrayList<Jogo> historicoClube){
-        this.nome = nome;
+   
+    public Jogador(int codClube, String nome, DatePicker dataNascimento, String posicao, String nacionalidade, String peDom){
         this.codClube = codClube;
-        this.idade = idade;
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
         this.posicao = posicao;
         this.nacionalidade = nacionalidade;
-        this.nomeClube = nomeClube;
-        this.estatisticas = estatistica;
         this.peDom = peDom;
-        this.historicoClube = historicoClube;
+     
         
     }
 
+     /**
+     * Metodo que devolve codigo do clube
+     * @return codigo do clube
+     */
+    public int getCodClube() {
+        return codClube;
+    }
+
+    /**
+     * Metodo que define codigo do clube
+     * @param codClube 
+     */
+    public void setCodClube(int codClube) {
+        this.codClube = codClube;
+    }
+    
     /**
      * Metodo que devolve nome do jogador
      * @return nome
@@ -61,37 +61,23 @@ public class Jogador {
         this.nome = nome;
     }
 
+   
     /**
-     * Metodo que devolve codigo do clube
-     * @return codigo do clube
+     * Metodo que devolve data de Nascimento
+     * @return dataNascimento
      */
-    public int getCodClube() {
-        return codClube;
+    public DatePicker getDataNascimento() {
+        return dataNascimento;
     }
-
+    
     /**
-     * Metodo que define codigo do clube
-     * @param codClube 
+     * Metodo que define data de Nascimento
+     * @param dataNascimento 
      */
-    public void setCodClube(int codClube) {
-        this.codClube = codClube;
+    public void setdataNascimento(DatePicker dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
-
-    /**
-     * Metodo que devolve a idade do jogador
-     * @return idade
-     */
-    public int getIdade() {
-        return idade;
-    }
-
-    /**
-     * Metodo que define idade
-     * @param idade 
-     */
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
+   
 
     /**
      * Metodo que devolve posicao do jogador
@@ -125,37 +111,9 @@ public class Jogador {
         this.nacionalidade = nacionalidade;
     }
 
-    /**
-     * Metodo que devolve nome do clube
-     * @return nome do clube
-     */
-    public String getNomeClube() {
-        return nomeClube;
-    }
+ 
 
-    /**
-     * Metodo que define nome do clube
-     * @param nomeClube 
-     */
-    public void setNomeClube(String nomeClube) {
-        this.nomeClube = nomeClube;
-    }
-
-    /**
-     * Metodo que devolve estatistica
-     * @return estatistica
-     */
-    public ArrayList<Jogo> getEstatisticas() {
-        return estatisticas;
-    }
-
-    /**
-     * Metodo que define estatistica
-     * @param estatisticas 
-     */
-    public void setEstatisticas(ArrayList<Jogo> estatisticas) {
-        this.estatisticas = estatisticas;
-    }
+  
 
     /**
      * Metodo que devolve pe dominante
@@ -173,27 +131,13 @@ public class Jogador {
         this.peDom = peDom;
     }
 
-    /**
-     * Metodo que devolve historico de clube
-     * @return historico de clube
-     */
-    public ArrayList<Jogo> getHistoricoClube() {
-        return historicoClube;
-    }
-
-    /**
-     * Metodo que define historico de clube
-     * @param historicoClube 
-     */
-    public void setHistoricoClube(ArrayList<Jogo> historicoClube) {
-        this.historicoClube = historicoClube;
-    }
+ 
 
      public String toString() {
 
-        return "Jogador{" + "Nome do Jogador=" + nome + ", Codigo Clube=" + codClube + ", Idade=" + idade + 
-                ", Estatisticas=" + " " + ", Posição=" + posicao + ", nacionalidade=" + nacionalidade + 
-                ", Nome CLube=" + nomeClube + ", pe Dominante" + peDom + ", Historico Clube" + "" + "}";
+        return "Jogador{" + "Nome do Jogador=" + nome + ", Codigo Clube=" + codClube +  
+                ", Data de nascimento=" + dataNascimento + ", Posição=" + posicao + ", nacionalidade=" + nacionalidade + 
+                 ", pe Dominante" + peDom + "}";
     }        
 }
  
