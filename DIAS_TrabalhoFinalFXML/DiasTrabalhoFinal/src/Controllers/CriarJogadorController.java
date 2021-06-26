@@ -26,25 +26,7 @@ import javafx.stage.Stage;
 public class CriarJogadorController implements Initializable {
 
     @FXML
-    private Button btnVoltar;
-    @FXML
     private TextField txtNome;
-    @FXML
-    private TextField txtIdade;
-    @FXML
-    private TextField txtCodClube;
-    @FXML
-    private TextField txtPosicao;
-    @FXML
-    private TextField txtNacionalidade;
-    @FXML
-    private TextField txtNomeClube;
-    @FXML
-    private TextField txtPeDom;
-    @FXML
-    private TextField txtEstatistica;
-    @FXML
-    private TextField txtHistoricoClube;
     @FXML
     private Button btnAdicionar;
 
@@ -56,12 +38,7 @@ public class CriarJogadorController implements Initializable {
         // TODO
     }    
     
-   @FXML
-    private void AdicionarJogador(ActionEvent event) throws IOException {
-       
-    }
 
-    @FXML
     private void Voltar(ActionEvent event) throws IOException {
         abrirJanela("/Views/Linguagem.fxml", event);
     }

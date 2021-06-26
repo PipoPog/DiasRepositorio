@@ -8,7 +8,7 @@
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ArbitroController">
    <children>
       <AnchorPane prefHeight="547.0" prefWidth="824.0" styleClass="bodybg" stylesheets="@Superliga.css" />
-      <Button fx:id="btnAdicionarArbitro" layoutX="24.0" layoutY="97.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Adicionar Árbitro" />
+      <Button fx:id="btnAdicionarArbitro" layoutX="24.0" layoutY="97.0" mnemonicParsing="false" onAction="#AdicionarArbitro" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Adicionar Árbitro" />
       <Button fx:id="btnConsultarArbitro" layoutX="549.0" layoutY="97.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Consultar Árbitro" />
       <Button fx:id="btnVoltar" layoutX="305.0" layoutY="439.0" mnemonicParsing="false" onAction="#voltar" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Voltar" />
       <Label layoutX="317.0" layoutY="19.0" prefHeight="38.0" prefWidth="282.0" text="Gestão De Árbitro">
