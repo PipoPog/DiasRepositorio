@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -26,9 +27,29 @@ import javafx.stage.Stage;
 public class CriarJogadorController implements Initializable {
 
     @FXML
-    private TextField txtNome;
-    @FXML
     private Button btnAdicionar;
+  @FXML
+  private Button btnVoltar;
+  @FXML
+  private TextField txtCodJogo;
+  @FXML
+  private TextField txtEquipaCasa;
+  @FXML
+  private TextField txtCodJornada;
+  @FXML
+  private Label txtJornada;
+  @FXML
+  private TextField txtEquipaFora;
+  @FXML
+  private TextField txtResCasa;
+  @FXML
+  private TextField txtResFora;
+  @FXML
+  private TextField txtLocal;
+  @FXML
+  private TextField txtclasscasa;
+  @FXML
+  private TextField txtclasfora;
 
     /**
      * Initializes the controller class.

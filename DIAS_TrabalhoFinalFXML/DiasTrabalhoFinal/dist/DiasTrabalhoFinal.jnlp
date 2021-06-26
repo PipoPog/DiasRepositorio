@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="DiasTrabalhoFinal.jar" size="115392" download="eager" />
+    <jar href="DiasTrabalhoFinal.jar" size="117343" download="eager" />
     <jar href="lib\mssql-jdbc-9.2.1.jre8.jar" size="1327629" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="diastrabalhofinal.DiasTrabalhoFinal"  name="DiasTrabalhoFinal" />

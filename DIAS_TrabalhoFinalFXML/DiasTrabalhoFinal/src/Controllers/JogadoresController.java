@@ -36,12 +36,10 @@ public class JogadoresController implements Initializable {
         // TODO
     }    
     
-   @FXML
     private void AdicionarJogador(ActionEvent event) throws IOException {
         abrirJanela("/Views/CriarJogador.fxml", event);
     }
 
-    @FXML
     private void ConsultarJogador(ActionEvent event) throws IOException {
         abrirJanela("/Views/ConsultarJogadores.fxml", event);
     }

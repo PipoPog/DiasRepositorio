@@ -6,6 +6,7 @@
 package diastrabalhofinal;
 
 import Models.Arbitro;
+import Models.Jogo;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -91,9 +92,43 @@ public Connection conectarBaseDados() throws SQLException {
             if (conexao != null) {
                 conexao.close();
             }
+        }
+    }
+   public void adicionarJogo(Jogo jogoadicionar) throws SQLException{
 
+        Connection conexao = null;
+        PreparedStatement pst = null;
+
+        try {
+            conexao = conectarBaseDados();
+            pst = conexao.prepareStatement(queryAdicionarJogo);
+            pst.setInt(1, jogoadicionar.getCod_jornada());
+            pst.setInt(2, jogoadicionar.getEquip_casa());
+            pst.setInt(3, jogoadicionar.getEquip_fora());
+            pst.setInt(4, jogoadicionar.getResult_equipcasa());
+            pst.setInt(5, jogoadicionar.getResult_equipfora());
+            pst.setString(6, jogoadicionar.getLocal());
+            pst.setInt(7, jogoadicionar.getClassificacaocasa());
+            pst.setInt(8, jogoadicionar.getClassificacaofora());
+            pst.executeUpdate();
+
+
+            JOptionPane.showMessageDialog(null, "Jogo Adicionado");
+            // Exeções
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        } finally {
+
+            if (pst != null) {
+                pst.close();
+            }
+
+            if (conexao != null) {
+                conexao.close();
+            }
         }
 
     }
-
 }
+
