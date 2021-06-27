@@ -6,6 +6,8 @@
 package diastrabalhofinal;
 
 import Models.Arbitro;
+import Models.Clubes;
+import Models.Jogador;
 import Models.Jogo;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -128,7 +130,70 @@ public Connection conectarBaseDados() throws SQLException {
                 conexao.close();
             }
         }
+   }
+public void adicionarClube(Clubes clubeadicionar) throws SQLException{
 
+        Connection conexao = null;
+        PreparedStatement pst = null;
+
+        try {
+            conexao = conectarBaseDados();
+            pst = conexao.prepareStatement(queryAdicionarClube);
+            pst.setInt(1, clubeadicionar.getCodigoClube());
+            pst.setString(2, clubeadicionar.getNome());
+            pst.setString(3, clubeadicionar.getPais());
+            pst.executeUpdate();
+
+
+            JOptionPane.showMessageDialog(null, "Clube Adicionado");
+            // Exeções
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        } finally {
+
+            if (pst != null) {
+                pst.close();
+            }
+
+            if (conexao != null) {
+                conexao.close();
+            }
+        }
+    }
+
+public void adicionarJogadores(Jogador jogadicionar) throws SQLException{
+
+        Connection conexao = null;
+        PreparedStatement pst = null;
+
+        try {
+            conexao = conectarBaseDados();
+            pst = conexao.prepareStatement(queryAdicionarJogadores);
+            pst.setInt(1, jogadicionar.getCodClube());
+            pst.setString(2, jogadicionar.getNome());
+            pst.setDate(3, jogadicionar.getDataNascimento());
+            pst.setString(4, jogadicionar.getPosicao());
+            pst.setString(5, jogadicionar.getNacionalidade());
+            pst.setString(6, jogadicionar.getPeDom());
+            pst.executeUpdate();
+
+
+            JOptionPane.showMessageDialog(null, "Jogador Adicionado");
+            // Exeções
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        } finally {
+
+            if (pst != null) {
+                pst.close();
+            }
+
+            if (conexao != null) {
+                conexao.close();
+            }
+        }
     }
 }
 

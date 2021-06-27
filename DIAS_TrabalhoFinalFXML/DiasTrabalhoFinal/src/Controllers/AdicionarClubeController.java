@@ -38,6 +38,7 @@ public class AdicionarClubeController implements Initializable {
     private TextField txtCodClube;
     @FXML
     private Button btnAdicionar;
+    InteracaoBD connect = new InteracaoBD();
 
     /**
      * Initializes the controller class.
@@ -52,7 +53,7 @@ public class AdicionarClubeController implements Initializable {
 
            Clubes clubes = new Clubes(Integer.parseInt(txtCodClube.getText()), txtNomeClube.getText(), txtPais.getText());
 
-                connect.adicionarJogo(clubes);
+                connect.adicionarClube(clubes);
                 ((Node) (event.getSource())).getScene().getWindow().hide();
                 
                 System.out.println("Registo inserido com sucesso!");

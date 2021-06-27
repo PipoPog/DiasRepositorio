@@ -3,18 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/André%20Marques/Documents/GitKraken/RepositorioDias/DiasRepositorio/DIAS_TrabalhoFinalFXML/DiasTrabalhoFinal/src/Controllers/AdicionarArbitroController.java</file>
-            <file>file:/C:/Users/André%20Marques/Documents/GitKraken/RepositorioDias/DiasRepositorio/DIAS_TrabalhoFinalFXML/DiasTrabalhoFinal/src/Models/Jogador.java</file>
-            <file>file:/C:/Users/André%20Marques/Documents/GitKraken/RepositorioDias/DiasRepositorio/DIAS_TrabalhoFinalFXML/DiasTrabalhoFinal/src/Controllers/ClubesController.java</file>
-            <file>file:/C:/Users/André%20Marques/Documents/GitKraken/RepositorioDias/DiasRepositorio/DIAS_TrabalhoFinalFXML/DiasTrabalhoFinal/src/diastrabalhofinal/InteracaoBD.java</file>
-            <file>file:/C:/Users/André%20Marques/Documents/GitKraken/RepositorioDias/DiasRepositorio/DIAS_TrabalhoFinalFXML/DiasTrabalhoFinal/src/Controllers/AdicionarJogoController.java</file>
-            <file>file:/C:/Users/André%20Marques/Documents/GitKraken/RepositorioDias/DiasRepositorio/DIAS_TrabalhoFinalFXML/DiasTrabalhoFinal/src/diastrabalhofinal/DiasTrabalhoFinal.java</file>
-            <file>file:/C:/Users/André%20Marques/Documents/GitKraken/RepositorioDias/DiasRepositorio/DIAS_TrabalhoFinalFXML/DiasTrabalhoFinal/src/Controllers/CriarJogadorController.java</file>
-            <file>file:/C:/Users/André%20Marques/Documents/GitKraken/RepositorioDias/DiasRepositorio/DIAS_TrabalhoFinalFXML/DiasTrabalhoFinal/src/Controllers/ConsultarJogoController.java</file>
-            <file>file:/C:/Users/André%20Marques/Documents/GitKraken/RepositorioDias/DiasRepositorio/DIAS_TrabalhoFinalFXML/DiasTrabalhoFinal/src/Views/AdicionarClube.fxml</file>
-            <file>file:/C:/Users/André%20Marques/Documents/GitKraken/RepositorioDias/DiasRepositorio/DIAS_TrabalhoFinalFXML/DiasTrabalhoFinal/src/Views/CriarJogador.fxml</file>
-            <file>file:/C:/Users/André%20Marques/Documents/GitKraken/RepositorioDias/DiasRepositorio/DIAS_TrabalhoFinalFXML/DiasTrabalhoFinal/src/Controllers/AdicionarClubeController.java</file>
-            <file>file:/C:/Users/André%20Marques/Documents/GitKraken/RepositorioDias/DiasRepositorio/DIAS_TrabalhoFinalFXML/DiasTrabalhoFinal/src/Models/Clubes.java</file>
+            <file>file:/C:/Users/lucpe/OneDrive/Documentos/DIAS_ProjetoFinal/DiasRepositorio/DIAS_TrabalhoFinalFXML/DiasTrabalhoFinal/src/diastrabalhofinal/DiasTrabalhoFinal.java</file>
+            <file>file:/C:/Users/lucpe/OneDrive/Documentos/DIAS_ProjetoFinal/DiasRepositorio/DIAS_TrabalhoFinalFXML/DiasTrabalhoFinal/src/Models/Jogador.java</file>
+            <file>file:/C:/Users/lucpe/OneDrive/Documentos/DIAS_ProjetoFinal/DiasRepositorio/DIAS_TrabalhoFinalFXML/DiasTrabalhoFinal/src/Controllers/CriarJogadorController.java</file>
+            <file>file:/C:/Users/lucpe/OneDrive/Documentos/DIAS_ProjetoFinal/DiasRepositorio/DIAS_TrabalhoFinalFXML/DiasTrabalhoFinal/src/diastrabalhofinal/InteracaoBD.java</file>
         </group>
     </open-files>
 </project-private>

@@ -22,6 +22,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 /**
@@ -35,7 +36,6 @@ public class CriarJogadorController implements Initializable {
     private Button btnAdicionar;
   @FXML
   private TextField txtNome;
-  @FXML
   private TextField txtIdade;
   @FXML
   private TextField txtCodClube;
@@ -44,14 +44,10 @@ public class CriarJogadorController implements Initializable {
   @FXML
   private TextField txtNacionalidade;
   @FXML
-  private TextField txtNomeClube;
-  @FXML
   private TextField txtPeDom;
-  @FXML
-  private TextField txtEstatistica;
-  @FXML
-  private TextField txtHistoricoClube;
   InteracaoBD connect = new InteracaoBD();
+  @FXML
+  private DatePicker dpDataNascimento;
     /**
      * Initializes the controller class.
      */
@@ -67,11 +63,11 @@ public class CriarJogadorController implements Initializable {
 
   @FXML
     private void addJogador(ActionEvent event) throws SQLException, ParseException {
-
-           Jogador jogador = new Jogador(Integer.parseInt(txtCodClube.getText()), txtNome.getText(), txtIdade.getText(),
+  java.sql.Date datadenascimento = java.sql.Date.valueOf(dpDataNascimento.getValue());
+           Jogador jogador = new Jogador(Integer.parseInt(txtCodClube.getText()), txtNome.getText(),datadenascimento,
                    txtPosicao.getText(),txtNacionalidade.getText(), txtPeDom.getText());
 
-                connect.adicionarJogo(jogador);
+                connect.adicionarJogadores(jogador);
                 ((Node) (event.getSource())).getScene().getWindow().hide();
                 
                 System.out.println("Registo inserido com sucesso!");

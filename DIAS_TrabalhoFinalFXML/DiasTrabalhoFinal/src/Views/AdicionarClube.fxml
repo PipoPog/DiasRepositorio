@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="Controllers.AdicionarClubeController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdicionarClubeController">
    <children>
       <AnchorPane id="AnchorPane" layoutX="5.0" layoutY="5.0" prefHeight="547.0" prefWidth="824.0" styleClass="bodybg">
          <children>
@@ -17,12 +16,12 @@
                   <Font size="26.0" />
                </font>
             </Label>
-            <TextField fx:id="txtNomeClube" layoutX="261.0" layoutY="182.0" prefHeight="26.0" prefWidth="320.0" />
-            <Label layoutX="97.0" layoutY="186.0" text="Nome:" />
+            <TextField fx:id="txtNomeClube" layoutX="261.0" layoutY="214.0" prefHeight="26.0" prefWidth="320.0" />
+            <Label layoutX="101.0" layoutY="219.0" text="Nome:" />
             <TextField fx:id="txtPais" layoutX="261.0" layoutY="247.0" prefHeight="26.0" prefWidth="320.0" />
-            <Label layoutX="97.0" layoutY="251.0" text="País" />
-            <TextField fx:id="txtCodClube" layoutX="261.0" layoutY="215.0" prefHeight="26.0" prefWidth="320.0" />
-            <Label layoutX="97.0" layoutY="219.0" text="Codigo Clube:" />
+            <Label layoutX="108.0" layoutY="251.0" text="País" />
+            <TextField fx:id="txtCodClube" layoutX="261.0" layoutY="181.0" prefHeight="26.0" prefWidth="320.0" />
+            <Label layoutX="99.0" layoutY="186.0" text="Codigo Clube:" />
             <Button fx:id="btnAdicionar" layoutX="309.0" layoutY="461.0" mnemonicParsing="false" onAction="#addClube" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Adicionar" />
          </children>
          <stylesheets>
