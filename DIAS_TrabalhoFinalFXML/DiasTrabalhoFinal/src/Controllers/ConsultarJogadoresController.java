@@ -52,7 +52,7 @@ public class ConsultarJogadoresController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            TabelaJogador = listarJogadoresTabela(conexao.getJogadores(20));
+            TabelaJogador = listarJogadoresTabela(conexao.getJogadores(60));
         } catch (SQLException ex) {
             Logger.getLogger(ConsultarArbitroController.class.getName()).log(Level.SEVERE, null, ex);
         }
