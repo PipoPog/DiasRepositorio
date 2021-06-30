@@ -56,7 +56,8 @@ public class InteracaoBD {
     private String queryGetClassificacaoByID = "SELECT * FROM Classificacao WHERE cod_Equipa LIKE ?";
     private String queryTodosArbitro = "SELECT * FROM Arbitros";
     private String queryTodosJogadores = "SELECT * FROM Jogadores";
-
+    private String queryTodosJogos= "SELECT * FROM Jogo";
+    
     public Connection conectarBaseDados() throws SQLException {
 
         Connection Conexao = null;
@@ -385,12 +386,12 @@ public class InteracaoBD {
 
             while (rs.next()) {
                 Jogador JogadoresAdicionar = new Jogador(
-                        rs.getInt("codClube"),
+                        rs.getInt("cod_clube"),
                         rs.getString("nome"),
-                        rs.getDate("dataNascimento"),
+                        rs.getDate("datanascimento"),
                         rs.getString("posicao"),
                         rs.getString("nacionalidade"),
-                        rs.getString("peDom")
+                        rs.getString("pe_dominante")
                 );
                 listaJogadores.add(JogadoresAdicionar);
             }
@@ -421,9 +422,9 @@ public class InteracaoBD {
         Connection conexao = null;
         PreparedStatement pst = null;
 
-        String ComandoPesquisaJogadores = "SELECT * FROM Arbitros WHERE cod_jogo LIKE '" + codClube + "%'";
-        String ComandoPesquisaJogadores1 = "SELECT * FROM Arbitros WHERE cod_jogo LIKE '" + codClube + "%' AND `nome` LIKE '" + nome + "%'";
-        String ComandoPesquisaJogadores2 = "SELECT * FROM Arbitros WHERE nome LIKE '" + nome + "%'";
+        String ComandoPesquisaJogadores = "SELECT * FROM Jogadores WHERE cod_clube LIKE '" + codClube + "%'";
+        String ComandoPesquisaJogadores1 = "SELECT * FROM Jogadores WHERE cod_clube LIKE '" + codClube + "%' AND `nome` LIKE '" + nome + "%'";
+        String ComandoPesquisaJogadores2 = "SELECT * FROM Jogadores WHERE nome LIKE '" + nome + "%'";
 
         try {
             conexao = conectarBaseDados();
@@ -440,12 +441,12 @@ public class InteracaoBD {
 
             while (rs.next()) {
                 Jogador JogadoresAdicionar = new Jogador(
-                        rs.getInt("codClube"),
+                        rs.getInt("cod_clube"),
                         rs.getString("nome"),
-                        rs.getDate("dataNascimento"),
+                        rs.getDate("datanascimento"),
                         rs.getString("posicao"),
                         rs.getString("nacionalidade"),
-                        rs.getString("peDom")
+                        rs.getString("pe_dominante")
                 );
                 listaJogadores.add(JogadoresAdicionar);
             }
@@ -471,4 +472,128 @@ public class InteracaoBD {
         }
         return listaJogadores;
     }
+        public ArrayList<Jogo> getJogo(int total) throws SQLException {
+        Connection conexao = conectarBaseDados();
+        PreparedStatement pst = null;
+
+        ArrayList<Jogo> listaJogo = new ArrayList<Jogo>();
+
+        try {
+
+            pst = conexao.prepareStatement(queryTodosJogos);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                Jogo JogoAdicionar = new Jogo(
+                        rs.getInt("cod_jornada"),
+                        rs.getInt("equip_casa"),
+                        rs.getInt("equip_fora"),
+                        rs.getInt("result_equipcasa"),
+                        rs.getInt("result_equipfora"),
+                        rs.getString("local"),
+                        rs.getInt("classificacaocasa"),
+                        rs.getInt("classificacaofora"));
+                        
+                listaJogo.add(JogoAdicionar);
+            }
+
+        } catch (SQLException ex) {
+
+            System.out.println(ex.getMessage());
+
+        } finally {
+
+            if (pst != null) {
+                pst.close();
+            }
+
+            if (conexao != null) {
+                conexao.close();
+            }
+
+        }
+
+        return listaJogo;
+    }
+        
+           public ArrayList<Jogo> getJogoPesquisa(String cod_jornada, String equip_casa, String equip_fora) throws SQLException {
+
+ 
+        ArrayList<Jogo> listaJogo = new ArrayList<>();
+
+        Connection conexao = null;
+        PreparedStatement pst = null;
+
+        String ComandoPesquisaJogo = "SELECT * FROM Jogo WHERE cod_jogo LIKE '" + cod_jornada + "%'";
+        String ComandoPesquisaJogo1 = "SELECT * FROM Jogo WHERE cod_jogo LIKE '" + cod_jornada + "%' AND `equip_casa` LIKE '" + equip_casa + "%'";
+        String ComandoPesquisaJogo2 = "SELECT * FROM Jogo WHERE cod_jogo LIKE '" + cod_jornada + "%' AND `equip_fora` LIKE '" + equip_fora + "%'";
+        String ComandoPesquisaJogo3 = "SELECT * FROM Jogo WHERE cod_jogo LIKE '" + cod_jornada + "%' AND `equip_casa` LIKE '" + equip_casa + "%' AND `equip_fora` LIKE '" + equip_fora + "%'";
+        String ComandoPesquisaJogo4 = "SELECT * FROM Jogo WHERE equip_fora LIKE '" + equip_fora + "%' AND `equip_casa` LIKE '" + equip_casa + "%'";
+        String ComandoPesquisaJogo5 = "SELECT * FROM Jogo WHERE equip_casa LIKE '" + equip_casa + "%'";
+        String ComandoPesquisaJogo6 = "SELECT * FROM Jogo WHERE equip_fora LIKE '" + equip_fora + "%'";
+        
+        
+        try {
+            conexao = conectarBaseDados();
+            if (!cod_jornada.equals("") && equip_casa.equals("" )&& equip_fora.equals("")) {
+                pst = conexao.prepareStatement(ComandoPesquisaJogo);
+                
+            } else if (!cod_jornada.equals("") && !equip_casa.equals("" )&& equip_fora.equals("")) {
+                pst = conexao.prepareStatement(ComandoPesquisaJogo1);
+                
+             } else if (!cod_jornada.equals("") && !equip_casa.equals("" )&& equip_fora.equals("")) {
+                pst = conexao.prepareStatement(ComandoPesquisaJogo2);
+                
+             } else if (!cod_jornada.equals("") && !equip_casa.equals("" )&& !equip_fora.equals("")) {
+                pst = conexao.prepareStatement(ComandoPesquisaJogo3);
+                
+             } else if (cod_jornada.equals("") && !equip_casa.equals("" )&& !equip_fora.equals("")) {
+                pst = conexao.prepareStatement(ComandoPesquisaJogo4);
+                
+             } else if (cod_jornada.equals("") && !equip_casa.equals("" )&& equip_fora.equals("")) {
+                pst = conexao.prepareStatement(ComandoPesquisaJogo5);
+                
+             } else if (cod_jornada.equals("") && equip_casa.equals("" )&& !equip_fora.equals("")) {
+                pst = conexao.prepareStatement(ComandoPesquisaJogo6);
+                
+            } else if (cod_jornada.equals("") && equip_casa.equals("") && equip_fora.equals("")) {
+                 return getJogo(20);   
+            }
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                Jogo JogoAdicionar = new Jogo(
+                        rs.getInt("cod_jornada"),
+                        rs.getInt("equip_casa"),
+                        rs.getInt("equip_fora"),
+                        rs.getInt("result_equipcasa"),
+                        rs.getInt("result_equipfora"),
+                        rs.getString("local"),
+                        rs.getInt("classificacaocasa"),
+                        rs.getInt("classificacaofora"));
+                        
+                listaJogo.add(JogoAdicionar);
+            }
+            
+        } catch (SQLException ex) {
+
+            System.out.println(ex.getMessage());
+
+        } finally {
+
+            if (pst != null) {
+
+                pst.close();
+
+            }
+
+            if (conexao != null) {
+
+                conexao.close();
+
+            }
+
+        }
+        return listaJogo;
+    } 
 }
