@@ -22,41 +22,42 @@ import javax.swing.JOptionPane;
  *
  * @author lucpe
  */
-public class InteracaoBD{
-   // Variaveis base de dados
+public class InteracaoBD {
+    // Variaveis base de dados
+
     private final String Driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     private final String dbURL = "jdbc:sqlserver://localhost\\SQLEXPRESS;databaseName=SLEuropeia;integratedSecurity=true";
 
-    
     //Querys
     private static String queryAdicionarJogo = "INSERT INTO Jogo"
             + "(cod_jornada, equip_casa, equip_fora, result_equipcasa, result_equipfora, local,classificacaocasa, classificacaofora) VALUES"
             + "(?,?,?,?,?,?,?,?)";
-     private static String queryAdicionarArbitro = "INSERT INTO Arbitros"
+    private static String queryAdicionarArbitro = "INSERT INTO Arbitros"
             + "(cod_jogo, nome) VALUES"
             + "(?,?)";
-     private static String queryAdicionarCartao = "INSERT INTO Cartoes"
+    private static String queryAdicionarCartao = "INSERT INTO Cartoes"
             + "(cod_jogo, cod_jogador, corcartao, tempo) VALUES"
             + "(?,?,?,?)";
-     private static String queryAdicionarClube = "INSERT INTO Clubes"
+    private static String queryAdicionarClube = "INSERT INTO Clubes"
             + "(nome, pais, classificacao_anterior) VALUES"
             + "(?,?,?)";
-     private static String queryAdicionarGolos = "INSERT INTO Golos"
+    private static String queryAdicionarGolos = "INSERT INTO Golos"
             + "(cod_jogo, golos_anulados, tempo, jogador) VALUES"
             + "(?,?,?,?)";
-     private static String queryAdicionarJogadores = "INSERT INTO Jogadores"
+    private static String queryAdicionarJogadores = "INSERT INTO Jogadores"
             + "(cod_clube, nome, datanascimento, posicao, nacionalidade, pe_dominante) VALUES"
             + "(?,?,?,?,?,?)";
-     private static String queryAdicionarSubstituicao = "INSERT INTO Substituicoes"
+    private static String queryAdicionarSubstituicao = "INSERT INTO Substituicoes"
             + "(cod_jogo, codjogador_ent, codjogador_sai, tempo) VALUES"
             + "(?,?,?,?)";
-     
-     private String queryEditarClassificacao = "UPDATE Classificacao SET cod_equipa= ?, classificacao = ?, "
-            + "vitorias = ?, derrotas = ?, empates = ?, pontos = ? WHERE cod_equipa = ?";
-     private String queryGetClassificacaoByID = "SELECT * FROM Classificacao WHERE cod_Equipa LIKE ?";
-     private String queryTodosArbitro = "SELECT * FROM Arbitros";
 
-public Connection conectarBaseDados() throws SQLException {
+    private String queryEditarClassificacao = "UPDATE Classificacao SET cod_equipa= ?, classificacao = ?, "
+            + "vitorias = ?, derrotas = ?, empates = ?, pontos = ? WHERE cod_equipa = ?";
+    private String queryGetClassificacaoByID = "SELECT * FROM Classificacao WHERE cod_Equipa LIKE ?";
+    private String queryTodosArbitro = "SELECT * FROM Arbitros";
+    private String queryTodosJogadores = "SELECT * FROM Jogadores";
+
+    public Connection conectarBaseDados() throws SQLException {
 
         Connection Conexao = null;
 
@@ -74,6 +75,7 @@ public Connection conectarBaseDados() throws SQLException {
         Conexao = DriverManager.getConnection(dbURL);
         return Conexao;
     }
+
     public void adicionarArbitro(Arbitro arbitroadicionar) throws SQLException {
 
         Connection conexao = null;
@@ -85,7 +87,6 @@ public Connection conectarBaseDados() throws SQLException {
             pst.setInt(1, arbitroadicionar.getJogoResponsavel());
             pst.setString(2, arbitroadicionar.getNome());
             pst.executeUpdate();
-
 
             JOptionPane.showMessageDialog(null, "Arbitro Adicionado");
             // Exeções
@@ -103,7 +104,8 @@ public Connection conectarBaseDados() throws SQLException {
             }
         }
     }
-   public void adicionarJogo(Jogo jogoadicionar) throws SQLException{
+
+    public void adicionarJogo(Jogo jogoadicionar) throws SQLException {
 
         Connection conexao = null;
         PreparedStatement pst = null;
@@ -121,7 +123,6 @@ public Connection conectarBaseDados() throws SQLException {
             pst.setInt(8, jogoadicionar.getClassificacaofora());
             pst.executeUpdate();
 
-
             JOptionPane.showMessageDialog(null, "Jogo Adicionado");
             // Exeções
         } catch (SQLException ex) {
@@ -137,8 +138,9 @@ public Connection conectarBaseDados() throws SQLException {
                 conexao.close();
             }
         }
-   }
-public void adicionarClube(Clubes clubeadicionar) throws SQLException{
+    }
+
+    public void adicionarClube(Clubes clubeadicionar) throws SQLException {
 
         Connection conexao = null;
         PreparedStatement pst = null;
@@ -150,7 +152,6 @@ public void adicionarClube(Clubes clubeadicionar) throws SQLException{
             pst.setString(2, clubeadicionar.getNome());
             pst.setString(3, clubeadicionar.getPais());
             pst.executeUpdate();
-
 
             JOptionPane.showMessageDialog(null, "Clube Adicionado");
             // Exeções
@@ -169,7 +170,7 @@ public void adicionarClube(Clubes clubeadicionar) throws SQLException{
         }
     }
 
-public void adicionarJogadores(Jogador jogadicionar) throws SQLException{
+    public void adicionarJogadores(Jogador jogadicionar) throws SQLException {
 
         Connection conexao = null;
         PreparedStatement pst = null;
@@ -184,7 +185,6 @@ public void adicionarJogadores(Jogador jogadicionar) throws SQLException{
             pst.setString(5, jogadicionar.getNacionalidade());
             pst.setString(6, jogadicionar.getPeDom());
             pst.executeUpdate();
-
 
             JOptionPane.showMessageDialog(null, "Jogador Adicionado");
             // Exeções
@@ -202,7 +202,8 @@ public void adicionarJogadores(Jogador jogadicionar) throws SQLException{
             }
         }
     }
-public void Classificacaoupdate(Classificacao classificacao) throws SQLException {
+
+    public void Classificacaoupdate(Classificacao classificacao) throws SQLException {
         Connection conexao = null;
         PreparedStatement pst = null;
 
@@ -236,6 +237,7 @@ public void Classificacaoupdate(Classificacao classificacao) throws SQLException
         }
 
     }
+
     public Classificacao getById(String id) throws SQLException {
         Connection conexao = conectarBaseDados();
         int cod_equipa;
@@ -243,7 +245,7 @@ public void Classificacaoupdate(Classificacao classificacao) throws SQLException
         int vit;
         int der;
         int empates;
-        int pontos;        
+        int pontos;
         PreparedStatement pst = null;
         Classificacao classificacao = null;
         try {
@@ -277,9 +279,9 @@ public void Classificacaoupdate(Classificacao classificacao) throws SQLException
 
         }
 
-
         return classificacao;
     }
+
     public ArrayList<Arbitro> getArbitroPesquisa(String nome, String codjogo) throws SQLException {
 
         ArrayList<Arbitro> listaArbitro = new ArrayList<>();
@@ -300,7 +302,7 @@ public void Classificacaoupdate(Classificacao classificacao) throws SQLException
             } else if (!nome.equals("") && codjogo.equals("")) {
                 pst = conexao.prepareStatement(ComandoPesquisaArbitro2);
             } else if (nome.equals("") && codjogo.equals("")) {
-                 return get(20);   
+                return get(20);
             }
             ResultSet rs = pst.executeQuery();
 
@@ -310,7 +312,7 @@ public void Classificacaoupdate(Classificacao classificacao) throws SQLException
                         rs.getInt("cod_jogo"));
                 listaArbitro.add(ArbitroAdicionar);
             }
-            
+
         } catch (SQLException ex) {
 
             System.out.println(ex.getMessage());
@@ -332,6 +334,7 @@ public void Classificacaoupdate(Classificacao classificacao) throws SQLException
         }
         return listaArbitro;
     }
+
     public ArrayList<Arbitro> get(int total) throws SQLException {
         Connection conexao = conectarBaseDados();
         PreparedStatement pst = null;
@@ -367,5 +370,105 @@ public void Classificacaoupdate(Classificacao classificacao) throws SQLException
         }
 
         return listaArbitro;
+    }
+
+    public ArrayList<Jogador> getJogadores(int total) throws SQLException {
+        Connection conexao = conectarBaseDados();
+        PreparedStatement pst = null;
+
+        ArrayList<Jogador> listaJogadores = new ArrayList<Jogador>();
+
+        try {
+
+            pst = conexao.prepareStatement(queryTodosJogadores);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                Jogador JogadoresAdicionar = new Jogador(
+                        rs.getInt("codClube"),
+                        rs.getString("nome"),
+                        rs.getDate("dataNascimento"),
+                        rs.getString("posicao"),
+                        rs.getString("nacionalidade"),
+                        rs.getString("peDom")
+                );
+                listaJogadores.add(JogadoresAdicionar);
+            }
+
+        } catch (SQLException ex) {
+
+            System.out.println(ex.getMessage());
+
+        } finally {
+
+            if (pst != null) {
+                pst.close();
+            }
+
+            if (conexao != null) {
+                conexao.close();
+            }
+
+        }
+
+        return listaJogadores;
+    }
+
+    public ArrayList<Jogador> getJogadoresPesquisa(String codClube, String nome) throws SQLException {
+
+        ArrayList<Jogador> listaJogadores = new ArrayList<>();
+
+        Connection conexao = null;
+        PreparedStatement pst = null;
+
+        String ComandoPesquisaJogadores = "SELECT * FROM Arbitros WHERE cod_jogo LIKE '" + codClube + "%'";
+        String ComandoPesquisaJogadores1 = "SELECT * FROM Arbitros WHERE cod_jogo LIKE '" + codClube + "%' AND `nome` LIKE '" + nome + "%'";
+        String ComandoPesquisaJogadores2 = "SELECT * FROM Arbitros WHERE nome LIKE '" + nome + "%'";
+
+        try {
+            conexao = conectarBaseDados();
+            if (!codClube.equals("") && nome.equals("")) {
+                pst = conexao.prepareStatement(ComandoPesquisaJogadores);
+            } else if (!codClube.equals("") && !nome.equals("")) {
+                pst = conexao.prepareStatement(ComandoPesquisaJogadores1);
+            } else if (!nome.equals("") && codClube.equals("")) {
+                pst = conexao.prepareStatement(ComandoPesquisaJogadores2);
+            } else if (nome.equals("") && codClube.equals("")) {
+                return getJogadores(60);
+            }
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                Jogador JogadoresAdicionar = new Jogador(
+                        rs.getInt("codClube"),
+                        rs.getString("nome"),
+                        rs.getDate("dataNascimento"),
+                        rs.getString("posicao"),
+                        rs.getString("nacionalidade"),
+                        rs.getString("peDom")
+                );
+                listaJogadores.add(JogadoresAdicionar);
+            }
+
+        } catch (SQLException ex) {
+
+            System.out.println(ex.getMessage());
+
+        } finally {
+
+            if (pst != null) {
+
+                pst.close();
+
+            }
+
+            if (conexao != null) {
+
+                conexao.close();
+
+            }
+
+        }
+        return listaJogadores;
     }
 }
