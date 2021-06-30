@@ -259,12 +259,6 @@ public void Classificacaoupdate(Classificacao classificacao) throws SQLException
                         rs.getInt("derrotas"),
                         rs.getInt("empates"),
                         rs.getInt("pontos"));
-                cod_equipa =rs.getInt("cod_equipa");
-                classi =rs.getInt("classificacao");
-                vit=rs.getInt("vitorias");
-                der=rs.getInt("derrotas");
-                empates=rs.getInt("empates");
-                pontos = rs.getInt("pontos");
             }
 
         } catch (SQLException ex) {
