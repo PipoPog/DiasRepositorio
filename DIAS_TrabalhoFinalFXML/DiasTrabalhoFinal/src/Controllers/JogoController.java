@@ -25,8 +25,6 @@ import javafx.stage.Stage;
 public class JogoController implements Initializable {
 
   @FXML
-  private Button btnVoltar;
-  @FXML
   private Button btnConsultarJogo;
   @FXML
   private Button btnAdicionarJogo;
@@ -58,10 +56,6 @@ public class JogoController implements Initializable {
         stage.setResizable(false);
         stage.show();
 
-    }
-    @FXML
-    private void voltar(ActionEvent event) throws IOException {
-      
     }
 }
 

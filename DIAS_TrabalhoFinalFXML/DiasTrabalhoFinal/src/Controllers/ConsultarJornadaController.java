@@ -7,27 +7,25 @@ package Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
  *
- * @author André Marques
+ * @author Ricardo Santos
  */
-public class ConsultarJogoController implements Initializable {
+public class ConsultarJornadaController implements Initializable {
 
     @FXML
-    private TextField idTxtPesquisar;
+    private TextField txtCodEquipa;
     @FXML
-    private Button idBtnPesquisar;
+    private TextField txtCodJornada;
     @FXML
-    private AnchorPane PainelJogos;
+    private AnchorPane PainelJornadas;
 
     /**
      * Initializes the controller class.
@@ -36,5 +34,9 @@ public class ConsultarJogoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void atualizarTabela(ActionEvent event) {
+    }
     
 }

@@ -38,8 +38,6 @@ public class ConsultarArbitroController implements Initializable {
 
     @FXML
     private Button btnEditarArbitro;
-    @FXML
-    private Button btnVoltar;
     TableView<Arbitro> TabelaArbitro;
   @FXML
   private AnchorPane PainelArbitros;

@@ -28,8 +28,6 @@ import javafx.scene.control.TextField;
  */
 public class AdicionarJogoController implements Initializable {
 
-  @FXML
-  private Button btnVoltar;
   private TextField txtCodJogo;
   @FXML
   private TextField txtEquipaCasa;

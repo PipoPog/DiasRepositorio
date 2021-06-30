@@ -10,24 +10,29 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
  *
- * @author André Marques
+ * @author Ricardo Santos
  */
-public class ConsultarJogoController implements Initializable {
+public class ConsultarEstatisticasController implements Initializable {
 
     @FXML
-    private TextField idTxtPesquisar;
+    private AnchorPane PainelArbitros;
     @FXML
-    private Button idBtnPesquisar;
+    private Button btnGolosE;
     @FXML
-    private AnchorPane PainelJogos;
+    private Button btnCartoes;
+    @FXML
+    private Button btnVitorias;
+    @FXML
+    private Button btnDerrotas;
+    @FXML
+    private Button btnGolos;
+    @FXML
+    private Button btnCartoesE;
 
     /**
      * Initializes the controller class.

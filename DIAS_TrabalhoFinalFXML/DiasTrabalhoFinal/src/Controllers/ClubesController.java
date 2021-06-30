@@ -25,12 +25,6 @@ import javafx.stage.Stage;
 public class ClubesController implements Initializable {
 
     @FXML
-    private Button btnVoltar;
-    @FXML
-    private Button btnRemoverClubes;
-    @FXML
-    private Button btnEditarDadosClubes;
-    @FXML
     private Button btnConsultarClubes;
     @FXML
     private Button btnAdicionarClubes;
@@ -43,12 +37,10 @@ public class ClubesController implements Initializable {
         // TODO
     }    
     
-   @FXML
     private void AdicionarClubes(ActionEvent event) throws IOException {
         abrirJanela("/Views/AdicionarClubes.fxml", event);
     }
 
-    @FXML
     private void ConsultarClubes(ActionEvent event) throws IOException {
         abrirJanela("/Views/ConsultarClubes.fxml", event);
     }
