@@ -54,7 +54,7 @@ public class ArbitroController implements Initializable {
         Parent root = (Parent) fxml.load();
         Stage stage = new Stage();
         stage.setTitle("Rato Esquilo - Gestão da Superliga");
-        stage.setScene(new Scene(root, 829, 550));
+        stage.setScene(new Scene(root, 1800, 800));
         stage.setResizable(false);
         stage.show();
 
