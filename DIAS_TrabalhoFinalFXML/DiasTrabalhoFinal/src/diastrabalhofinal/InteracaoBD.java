@@ -596,7 +596,7 @@ public class InteracaoBD {
         public ArrayList<Classificacao> getVit(int total) throws SQLException {
         Connection conexao = conectarBaseDados();
         PreparedStatement pst = null;
-        ArrayList<Classificacao> listaclassi = new ArrayList<Classificacao>();
+        ArrayList<Classificacao> listaclassi = new ArrayList<>();
         try {
 
             pst = conexao.prepareStatement(queryGetClassificacaoVit);
@@ -634,7 +634,7 @@ public class InteracaoBD {
         public ArrayList<Classificacao> getDer(int total) throws SQLException {
         Connection conexao = conectarBaseDados();
         PreparedStatement pst = null;
-        ArrayList<Classificacao> listaclassi = new ArrayList<Classificacao>();
+        ArrayList<Classificacao> listaclassi = new ArrayList<>();
         try {
 
             pst = conexao.prepareStatement(queryGetClassificacaoDer);
@@ -684,7 +684,7 @@ public class InteracaoBD {
 
             while (rs.next()) {
                 Clubes ClubesAdicionar = new Clubes(
-                        rs.getInt("cod_clube"),
+                        rs.getInt("codigoClube"),
                         rs.getString("nome"),
                         rs.getString("pais"));
 
@@ -717,8 +717,8 @@ public class InteracaoBD {
         Connection conexao = null;
         PreparedStatement pst = null;
 
-        String ComandoPesquisaClubes = "SELECT * FROM Clubes WHERE cod_clube LIKE '" + codigoClube + "%'";
-        String ComandoPesquisaClubes1 = "SELECT * FROM Clubes WHERE cod_clube LIKE '" + codigoClube + "%' AND `nome` LIKE '" + nome + "%'";
+        String ComandoPesquisaClubes = "SELECT * FROM Clubes WHERE codigoClube LIKE '" + codigoClube + "%'";
+        String ComandoPesquisaClubes1 = "SELECT * FROM Clubes WHERE codigoClube LIKE '" + codigoClube + "%' AND `nome` LIKE '" + nome + "%'";
         String ComandoPesquisaClubes2 = "SELECT * FROM Clubes WHERE nome LIKE '" + nome + "%'";
 
         try {
@@ -736,7 +736,7 @@ public class InteracaoBD {
 
             while (rs.next()) {
                 Clubes ClubesAdicionar = new Clubes(
-                        rs.getInt("cod_clube"),
+                        rs.getInt("codigoClube"),
                         rs.getString("nome"),
                         rs.getString("pais"));
                 listaClubes.add(ClubesAdicionar);

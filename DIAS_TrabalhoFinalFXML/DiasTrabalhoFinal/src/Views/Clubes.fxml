@@ -6,13 +6,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="824.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ClubesController">
+<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="824.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ClubesController">
    <children>
       <Label alignment="TOP_CENTER" layoutX="271.0" layoutY="14.0" prefHeight="38.0" prefWidth="282.0" text="Gestão De Clubes" textFill="#030000">
          <font>
             <Font size="36.0" />
          </font></Label>
-<<<<<<< Updated upstream
       <Button fx:id="btnConsultarClubes" layoutX="553.0" layoutY="203.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Consultar Clubes" textFill="#030000">
          <font>
             <Font size="18.0" />
@@ -21,10 +20,6 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-=======
-      <Button fx:id="btnConsultarClubes" layoutX="556.0" layoutY="87.0" mnemonicParsing="false" onAction="#ConsultarClubes" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Consultar Clubes" />
-      <Button fx:id="btnAdicionarClubes" layoutX="50.0" layoutY="87.0" mnemonicParsing="false" onAction="#AdicionarClubes" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Adicionar Clubes" />
->>>>>>> Stashed changes
    </children>
    <stylesheets>
       <URL value="@Superliga.css" />

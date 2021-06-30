@@ -54,76 +54,7 @@ is divided into following sections:
         <property file="nbproject/configs/${config}.properties"/>
         <property file="nbproject/project.properties"/>
     </target>
-<<<<<<< Updated upstream
     <target depends="-pre-init,-init-private,-init-user,-init-project,-init-macrodef-property" name="-do-init">
-=======
-    <target name="-init-modules-supported">
-        <condition property="modules.supported.internal" value="true">
-            <not>
-                <matches pattern="1\.[0-8](\..*)?" string="${javac.source}"/>
-            </not>
-        </condition>
-    </target>
-    <target depends="-init-modules-supported" if="modules.supported.internal" name="-init-macrodef-modulename">
-        <macrodef name="modulename" uri="http://www.netbeans.org/ns/j2se-project/3">
-            <attribute name="property"/>
-            <attribute name="sourcepath"/>
-            <sequential>
-                <loadresource property="@{property}" quiet="true">
-                    <javaresource classpath="@{sourcepath}" name="module-info.java" parentFirst="false"/>
-                    <filterchain>
-                        <stripjavacomments/>
-                        <linecontainsregexp>
-                            <regexp pattern="module .* \{"/>
-                        </linecontainsregexp>
-                        <tokenfilter>
-                            <linetokenizer/>
-                            <replaceregex flags="s" pattern="(\s*module\s+)(\S*)(\s*\{.*)" replace="\2"/>
-                        </tokenfilter>
-                        <striplinebreaks/>
-                    </filterchain>
-                </loadresource>
-            </sequential>
-        </macrodef>
-    </target>
-    <target depends="-init-modules-supported,-init-macrodef-modulename" if="modules.supported.internal" name="-init-source-module-properties">
-        <fail message="Java 9 support requires Ant 1.10.0 or higher.">
-            <condition>
-                <not>
-                    <antversion atleast="1.10.0"/>
-                </not>
-            </condition>
-        </fail>
-        <j2seproject3:modulename property="module.name" sourcepath="${src.dir}"/>
-        <condition property="named.module.internal">
-            <and>
-                <isset property="module.name"/>
-                <length length="0" string="${module.name}" when="greater"/>
-            </and>
-        </condition>
-        <condition property="unnamed.module.internal">
-            <not>
-                <isset property="named.module.internal"/>
-            </not>
-        </condition>
-        <property name="javac.modulepath" value=""/>
-        <property name="run.modulepath" value="${javac.modulepath}"/>
-        <property name="module.build.classes.dir" value="${build.classes.dir}"/>
-        <property name="debug.modulepath" value="${run.modulepath}"/>
-        <property name="javac.upgrademodulepath" value=""/>
-        <property name="run.upgrademodulepath" value="${javac.upgrademodulepath}"/>
-        <condition else="" property="javac.systemmodulepath.cmd.line.arg" value="--system '${javac.systemmodulepath}'">
-            <and>
-                <isset property="javac.systemmodulepath"/>
-                <length length="0" string="${javac.systemmodulepath}" when="greater"/>
-            </and>
-        </condition>
-        <property name="dist.jlink.dir" value="${dist.dir}/jlink"/>
-        <property name="dist.jlink.output" value="${dist.jlink.dir}/${application.title}"/>
-        <property name="module.name" value=""/>
-    </target>
-    <target depends="-pre-init,-init-private,-init-user,-init-project,-init-macrodef-property,-init-modules-supported" name="-do-init">
->>>>>>> Stashed changes
         <property name="platform.java" value="${java.home}/bin/java"/>
         <available file="${manifest.file}" property="manifest.available"/>
         <condition property="splashscreen.available">
@@ -320,78 +251,7 @@ is divided into following sections:
             </sequential>
         </macrodef>
     </target>
-<<<<<<< Updated upstream
     <target depends="-init-ap-cmdline-properties" if="ap.supported.internal" name="-init-macrodef-javac-with-processors">
-=======
-    <target depends="-init-ap-cmdline-properties,-init-source-module-properties" if="modules.supported.internal" name="-init-macrodef-javac-with-module">
-        <macrodef name="javac" uri="http://www.netbeans.org/ns/j2se-project/3">
-            <attribute default="${src.dir}" name="srcdir"/>
-            <attribute default="${build.classes.dir}" name="destdir"/>
-            <attribute default="${javac.classpath}" name="classpath"/>
-            <attribute default="${javac.modulepath}" name="modulepath"/>
-            <attribute default="${javac.upgrademodulepath}" name="upgrademodulepath"/>
-            <attribute default="${javac.processorpath}" name="processorpath"/>
-            <attribute default="${javac.processormodulepath}" name="processormodulepath"/>
-            <attribute default="${build.generated.sources.dir}/ap-source-output" name="apgeneratedsrcdir"/>
-            <attribute default="${includes}" name="includes"/>
-            <attribute default="${excludes}" name="excludes"/>
-            <attribute default="${javac.debug}" name="debug"/>
-            <attribute default="${empty.dir}" name="sourcepath" unless:set="named.module.internal"/>
-            <attribute default="${src.dir}" if:set="named.module.internal" name="sourcepath"/>
-            <attribute default="${empty.dir}" name="gensrcdir"/>
-            <element name="customize" optional="true"/>
-            <sequential>
-                <condition property="warn.excludes.internal">
-                    <and>
-                        <isset property="named.module.internal"/>
-                        <length length="0" string="@{excludes}" trim="true" when="greater"/>
-                    </and>
-                </condition>
-                <echo if:set="warn.excludes.internal" level="warning" message="The javac excludes are not supported in the JDK 9 Named Module."/>
-                <property location="${build.dir}/empty" name="empty.dir"/>
-                <mkdir dir="${empty.dir}"/>
-                <mkdir dir="@{apgeneratedsrcdir}"/>
-                <condition property="processormodulepath.set">
-                    <resourcecount count="0" when="greater">
-                        <path>
-                            <pathelement path="@{processormodulepath}"/>
-                        </path>
-                    </resourcecount>
-                </condition>
-                <javac debug="@{debug}" deprecation="${javac.deprecation}" destdir="@{destdir}" encoding="${source.encoding}" excludes="@{excludes}" fork="${javac.fork}" includeantruntime="false" includes="@{includes}" source="${javac.source}" sourcepath="@{sourcepath}" srcdir="@{srcdir}" target="${javac.target}" tempdir="${java.io.tmpdir}">
-                    <src>
-                        <dirset dir="@{gensrcdir}" erroronmissingdir="false">
-                            <include name="*"/>
-                        </dirset>
-                    </src>
-                    <classpath>
-                        <path path="@{classpath}"/>
-                    </classpath>
-                    <modulepath>
-                        <path path="@{modulepath}"/>
-                    </modulepath>
-                    <upgrademodulepath>
-                        <path path="@{upgrademodulepath}"/>
-                    </upgrademodulepath>
-                    <compilerarg line="${javac.systemmodulepath.cmd.line.arg}"/>
-                    <compilerarg line="${javac.profile.cmd.line.arg}"/>
-                    <compilerarg line="${javac.compilerargs}"/>
-                    <compilerarg if:set="processormodulepath.set" value="--processor-module-path"/>
-                    <compilerarg if:set="processormodulepath.set" path="@{processormodulepath}"/>
-                    <compilerarg unless:set="processormodulepath.set" value="-processorpath"/>
-                    <compilerarg path="@{processorpath}:${empty.dir}" unless:set="processormodulepath.set"/>
-                    <compilerarg line="${ap.processors.internal}"/>
-                    <compilerarg line="${annotation.processing.processor.options}"/>
-                    <compilerarg value="-s"/>
-                    <compilerarg path="@{apgeneratedsrcdir}"/>
-                    <compilerarg line="${ap.proc.none.internal}"/>
-                    <customize/>
-                </javac>
-            </sequential>
-        </macrodef>
-    </target>
-    <target depends="-init-ap-cmdline-properties,-init-source-module-properties" if="ap.supported.internal" name="-init-macrodef-javac-with-processors" unless="modules.supported.internal">
->>>>>>> Stashed changes
         <macrodef name="javac" uri="http://www.netbeans.org/ns/j2se-project/3">
             <attribute default="${src.dir}" name="srcdir"/>
             <attribute default="${build.classes.dir}" name="destdir"/>
@@ -530,10 +390,7 @@ is divided into following sections:
             <sequential>
                 <property name="junit.forkmode" value="perTest"/>
                 <junit dir="${work.dir}" errorproperty="tests.failed" failureproperty="tests.failed" fork="true" forkmode="${junit.forkmode}" showoutput="true" tempdir="${build.dir}">
-<<<<<<< Updated upstream
                     <test methods="@{testmethods}" name="@{testincludes}" todir="${build.test.results.dir}"/>
-=======
->>>>>>> Stashed changes
                     <syspropertyset>
                         <propertyref prefix="test-sys-prop."/>
                         <mapper from="test-sys-prop.*" to="*" type="glob"/>
@@ -556,7 +413,6 @@ is divided into following sections:
             <sequential>
                 <property name="junit.forkmode" value="perTest"/>
                 <junit dir="${work.dir}" errorproperty="tests.failed" failureproperty="tests.failed" fork="true" forkmode="${junit.forkmode}" showoutput="true" tempdir="${build.dir}">
-<<<<<<< Updated upstream
                     <batchtest todir="${build.test.results.dir}">
                         <fileset dir="${test.src.dir}" excludes="@{excludes},${excludes}" includes="@{includes}">
                             <filename name="@{testincludes}"/>
@@ -565,8 +421,6 @@ is divided into following sections:
                             <filename name="${test.binarytestincludes}"/>
                         </fileset>
                     </batchtest>
-=======
->>>>>>> Stashed changes
                     <syspropertyset>
                         <propertyref prefix="test-sys-prop."/>
                         <mapper from="test-sys-prop.*" to="*" type="glob"/>
@@ -922,51 +776,14 @@ is divided into following sections:
             <attribute default="${debug.classpath}" name="classpath"/>
             <element name="customize" optional="true"/>
             <sequential>
-<<<<<<< Updated upstream
                 <java classname="@{classname}" dir="${work.dir}" failonerror="${java.failonerror}" fork="true">
                     <jvmarg line="${endorsed.classpath.cmd.line.arg}"/>
                     <jvmarg line="${debug-args-line}"/>
                     <jvmarg value="-Xrunjdwp:transport=${debug-transport},address=${jpda.address}"/>
-=======
-                <java classname="@{classname}" dir="${work.dir}" failonerror="${java.failonerror}" fork="true" module="@{modulename}">
-                    <classpath>
-                        <path path="@{classpath}"/>
-                    </classpath>
-                    <modulepath>
-                        <pathelement path="@{modulepath}"/>
-                        <pathelement location="${module.build.classes.dir}"/>
-                    </modulepath>
-                    <upgrademodulepath>
-                        <path path="@{upgrademodulepath}"/>
-                    </upgrademodulepath>
->>>>>>> Stashed changes
                     <jvmarg value="-Dfile.encoding=${runtime.encoding}"/>
                     <redirector errorencoding="${runtime.encoding}" inputencoding="${runtime.encoding}" outputencoding="${runtime.encoding}"/>
                     <jvmarg line="${run.jvmargs}"/>
                     <jvmarg line="${run.jvmargs.ide}"/>
-<<<<<<< Updated upstream
-=======
-                    <syspropertyset>
-                        <propertyref prefix="run-sys-prop."/>
-                        <mapper from="run-sys-prop.*" to="*" type="glob"/>
-                    </syspropertyset>
-                    <customize/>
-                </java>
-            </sequential>
-        </macrodef>
-    </target>
-    <target depends="-init-source-module-properties" if="unnamed.module.internal" name="-init-macrodef-java-with-unnamed-module">
-        <macrodef name="java" uri="http://www.netbeans.org/ns/j2se-project/1">
-            <attribute default="" name="modulename"/>
-            <attribute default="${main.class}" name="classname"/>
-            <attribute default="${run.modulepath}" name="modulepath"/>
-            <attribute default="${run.upgrademodulepath}" name="upgrademodulepath"/>
-            <attribute default="${run.classpath}" name="classpath"/>
-            <attribute default="jvm" name="jvm"/>
-            <element name="customize" optional="true"/>
-            <sequential>
-                <java classname="@{classname}" dir="${work.dir}" failonerror="${java.failonerror}" fork="true">
->>>>>>> Stashed changes
                     <classpath>
                         <path path="@{classpath}"/>
                     </classpath>
@@ -1213,78 +1030,8 @@ is divided into following sections:
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
     </target>
-<<<<<<< Updated upstream
     <target depends="init,compile,-pre-jar,-do-jar-without-libraries,-do-jar-with-libraries,-post-jar" name="-do-jar"/>
     <target depends="init,compile,-pre-jar,-do-jar,-post-jar" description="Build JAR." name="jar"/>
-=======
-    <target depends="init,compile,-pre-jar,-set-module-main-class,-do-jar-without-libraries,-do-jar-with-libraries,-post-jar" name="-do-jar"/>
-    <target depends="init,compile,-pre-jar,-do-jar,-post-jar,deploy" description="Build JAR." name="jar"/>
-    <!--
-                =================
-                DEPLOY SECTION
-                =================
-            -->
-    <target name="-pre-deploy">
-        <!-- Empty placeholder for easier customization. -->
-        <!-- You can override this target in the ../build.xml file. -->
-    </target>
-    <target depends="init" name="-check-jlink">
-        <condition property="do.jlink.internal">
-            <and>
-                <istrue value="${do.jlink}"/>
-                <isset property="do.archive"/>
-                <isset property="named.module.internal"/>
-            </and>
-        </condition>
-    </target>
-    <target depends="init,-do-jar,-post-jar,-pre-deploy,-check-jlink" if="do.jlink.internal" name="-do-deploy">
-        <delete dir="${dist.jlink.dir}" failonerror="false" quiet="true"/>
-        <property name="jlink.launcher.name" value="${application.title}"/>
-        <condition else="${module.name}" property="jlink.add.modules" value="${module.name},${jlink.additionalmodules}">
-            <and>
-                <isset property="jlink.additionalmodules"/>
-                <length length="0" string="${jlink.additionalmodules}" when="greater"/>
-            </and>
-        </condition>
-        <condition property="jlink.do.strip.internal">
-            <and>
-                <isset property="jlink.strip"/>
-                <istrue value="${jlink.strip}"/>
-            </and>
-        </condition>
-        <condition property="jlink.do.additionalparam.internal">
-            <and>
-                <isset property="jlink.additionalparam"/>
-                <length length="0" string="${jlink.additionalparam}" when="greater"/>
-            </and>
-        </condition>
-        <condition property="jlink.do.launcher.internal">
-            <and>
-                <istrue value="${jlink.launcher}"/>
-                <isset property="main.class.available"/>
-            </and>
-        </condition>
-        <property name="platform.jlink" value="${jdk.home}/bin/jlink"/>
-        <property name="jlink.systemmodules.internal" value="${jdk.home}/jmods"/>
-        <exec executable="${platform.jlink}">
-            <arg value="--module-path"/>
-            <arg path="${jlink.systemmodules.internal}:${run.modulepath}:${dist.jar}"/>
-            <arg value="--add-modules"/>
-            <arg value="${jlink.add.modules}"/>
-            <arg if:set="jlink.do.strip.internal" value="--strip-debug"/>
-            <arg if:set="jlink.do.launcher.internal" value="--launcher"/>
-            <arg if:set="jlink.do.launcher.internal" value="${jlink.launcher.name}=${module.name}/${main.class}"/>
-            <arg if:set="jlink.do.additionalparam.internal" line="${jlink.additionalparam}"/>
-            <arg value="--output"/>
-            <arg value="${dist.jlink.output}"/>
-        </exec>
-    </target>
-    <target name="-post-deploy">
-        <!-- Empty placeholder for easier customization. -->
-        <!-- You can override this target in the ../build.xml file. -->
-    </target>
-    <target depends="-do-jar,-post-jar,-pre-deploy,-do-deploy,-post-deploy" name="deploy"/>
->>>>>>> Stashed changes
     <!--
                 =================
                 EXECUTION SECTION
@@ -1465,15 +1212,6 @@ is divided into following sections:
         </condition>
         <condition else="" property="bug5101868workaround" value="*.java">
             <matches pattern="1\.[56](\..*)?" string="${java.version}"/>
-<<<<<<< Updated upstream
-=======
-        </condition>
-        <condition else="" property="javadoc.html5.cmd.line.arg" value="-html5">
-            <and>
-                <isset property="javadoc.html5"/>
-                <available file="${jdk.home}${file.separator}lib${file.separator}jrt-fs.jar"/>
-            </and>
->>>>>>> Stashed changes
         </condition>
         <javadoc additionalparam="-J-Dfile.encoding=${file.encoding} ${javadoc.additionalparam}" author="${javadoc.author}" charset="UTF-8" destdir="${dist.javadoc.dir}" docencoding="UTF-8" encoding="${javadoc.encoding.used}" failonerror="true" noindex="${javadoc.noindex}" nonavbar="${javadoc.nonavbar}" notree="${javadoc.notree}" private="${javadoc.private}" source="${javac.source}" splitindex="${javadoc.splitindex}" use="${javadoc.use}" useexternalfile="true" version="${javadoc.version}" windowtitle="${javadoc.windowtitle}">
             <classpath>
