@@ -3,38 +3,31 @@
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="824.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ConsultarJogadoresController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ConsultarJogadoresController">
    <children>
-      <Label layoutX="288.0" layoutY="9.0" prefHeight="38.0" prefWidth="282.0" text="Gestão De Jogadores">
+      <AnchorPane prefHeight="547.0" prefWidth="824.0" styleClass="bodybg">
+         <stylesheets>
+            <URL value="@../../com/mycompany/projetofinaldias/Menus/Linguagem/Superliga.css" />
+            <URL value="@Superliga.css" />
+         </stylesheets>
+         <children>
+            <AnchorPane fx:id="PainelJogadores" layoutX="53.0" layoutY="94.0" prefHeight="354.0" prefWidth="741.0" />
+            <Label layoutX="32.0" layoutY="57.0" text="Cod_Jogador:" />
+            <TextField fx:id="txtCodJogador" layoutX="104.0" layoutY="53.0" onAction="#atualizarTabela" />
+            <Label layoutX="385.0" layoutY="57.0" text="Nome:" />
+            <TextField fx:id="txtNome" layoutX="449.0" layoutY="53.0" onAction="#atualizarTabela" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="298.0" layoutY="19.0" prefHeight="38.0" prefWidth="282.0" text="Consultar Jogadores">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Button fx:id="btnVoltar" layoutX="618.0" layoutY="494.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Voltar" />
-      <TableView fx:id="idTableView" layoutX="84.0" layoutY="131.0" prefHeight="311.0" prefWidth="654.0">
-        <columns>
-          <TableColumn fx:id="idNome" prefWidth="104.0000228881836" text="Nome" />
-          <TableColumn fx:id="idCodigo" prefWidth="88.79998779296875" text="Codigo" />
-            <TableColumn fx:id="idIdade" prefWidth="53.60003662109375" text="Idade" />
-            <TableColumn prefWidth="82.39996337890625" text="Posição" />
-            <TableColumn prefWidth="93.60003662109375" text="Nacionalidade" />
-            <TableColumn prefWidth="74.39999389648438" text="Clube" />
-            <TableColumn prefWidth="56.00006103515625" text="Pé" />
-            <TableColumn prefWidth="105.59991455078125" text="Ultimo Clube" />
-        </columns>
-      </TableView>
-      <TextField fx:id="idTxtPesquisar" layoutX="161.0" layoutY="93.0" prefHeight="26.0" prefWidth="576.0" />
-      <Button fx:id="idBtnPesquisar" layoutX="84.0" layoutY="93.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="Pesquisar:" />
-      <Button fx:id="btnEditarJogador" layoutX="84.0" layoutY="461.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Editar Jogador" />
+      <Button fx:id="btnEditarJogador" layoutX="62.0" layoutY="471.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Editar Jogador" />
+      <Button fx:id="btnVoltar" layoutX="643.0" layoutY="504.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Voltar" />
    </children>
-   <stylesheets>
-      <URL value="@../../com/mycompany/projetofinaldias/Menus/Linguagem/Superliga.css" />
-      <URL value="@Superliga.css" />
-   </stylesheets>
 </AnchorPane>

@@ -1,40 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="824.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ConsultarJogoController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ConsultarJogoController">
    <children>
-      <Label layoutX="308.0" layoutY="9.0" prefHeight="38.0" prefWidth="282.0" text="Gestão De Jogos">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnVoltar" layoutX="618.0" layoutY="494.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Voltar" />
-      <TableView fx:id="idTableView" layoutX="84.0" layoutY="131.0" prefHeight="311.0" prefWidth="654.0">
-         <columns>
-            <TableColumn fx:id="idNome" prefWidth="52.0" text="Codigo" />
-            <TableColumn fx:id="idCodigo" prefWidth="47.999969482421875" text="Golos" />
-            <TableColumn fx:id="idIdade" prefWidth="95.20008850097656" text="Golos Anulados" />
-            <TableColumn prefWidth="80.79998779296875" text="Resultado Int" />
-            <TableColumn prefWidth="82.39996337890625" text="Resultado Fin" />
-            <TableColumn prefWidth="79.20001220703125" text="Substituições" />
-            <TableColumn prefWidth="99.99993896484375" text="Cartão Amarelos" />
-            <TableColumn prefWidth="132.0001220703125" text="Cartões Vermelho" />
-         </columns>
-      </TableView>
-      <TextField fx:id="idTxtPesquisar" layoutX="161.0" layoutY="93.0" prefHeight="26.0" prefWidth="576.0" />
-      <Button fx:id="idBtnPesquisar" layoutX="84.0" layoutY="93.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="Pesquisar:" />
-      <Button fx:id="btnEditarJogo" layoutX="84.0" layoutY="461.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Editar Jogo" />
+      <AnchorPane prefHeight="547.0" prefWidth="824.0" styleClass="bodybg">
+         <stylesheets>
+            <URL value="@../../com/mycompany/projetofinaldias/Menus/Linguagem/Superliga.css" />
+            <URL value="@Superliga.css" />
+         </stylesheets>
+         <children>
+            <AnchorPane fx:id="PainelJogo" layoutX="53.0" layoutY="94.0" prefHeight="354.0" prefWidth="741.0" />
+            <Label layoutX="32.0" layoutY="57.0" text="Cod_Jogo:" />
+            <TextField fx:id="txtCodJogo" layoutX="96.0" layoutY="53.0" onAction="#atualizarTabela" />
+            <Label layoutX="288.0" layoutY="57.0" text="Clube casa:" />
+            <TextField fx:id="txtClubeCasa" layoutX="354.0" layoutY="53.0" onAction="#atualizarTabela" />
+            <Label layoutX="288.0" layoutY="12.0" prefHeight="38.0" prefWidth="282.0" text="Consultar Jogo">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label layoutX="580.0" layoutY="57.0" text="Clube fora:" />
+            <TextField fx:id="txtClubeFora" layoutX="645.0" layoutY="53.0" onAction="#atualizarTabela" />
+         </children>
+      </AnchorPane>
    </children>
-   <stylesheets>
-      <URL value="@../../com/mycompany/projetofinaldias/Menus/Linguagem/Superliga.css" />
-      <URL value="@Superliga.css" />
-   </stylesheets>
 </AnchorPane>
