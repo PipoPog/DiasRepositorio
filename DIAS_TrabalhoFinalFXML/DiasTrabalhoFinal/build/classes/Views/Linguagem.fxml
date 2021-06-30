@@ -7,15 +7,33 @@
 
 <AnchorPane id="AnchorPane" prefHeight="551.0" prefWidth="833.0" styleClass="bodybg" stylesheets="@Superliga.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MenuPrincipalController">
    <children>
-      <Label layoutX="257.0" layoutY="9.0" prefHeight="38.0" prefWidth="282.0" text="Bem-Vindo a SuperLiga!">
+      <Label alignment="TOP_CENTER" layoutX="214.0" layoutY="14.0" prefHeight="53.0" prefWidth="405.0" text="Bem-Vindo a SuperLiga!" textFill="#030000">
          <font>
-            <Font size="26.0" />
+            <Font size="36.0" />
          </font></Label>
-      <Button fx:id="btnJogadores" layoutX="539.0" layoutY="87.0" mnemonicParsing="false" onAction="#Jogador" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Jogadores" />
-      <Button fx:id="btnArbitros" layoutX="539.0" layoutY="169.0" mnemonicParsing="false" onAction="#Arbitro" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Árbitros" />
-      <Button fx:id="btnClubes" layoutX="14.0" layoutY="169.0" mnemonicParsing="false" onAction="#Clubes" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Clubes" />
-      <Button fx:id="btnJornada" layoutX="14.0" layoutY="87.0" mnemonicParsing="false" onAction="#Jornada" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Jogo" />
-      <Button fx:id="btnClassi" layoutX="14.0" layoutY="276.0" mnemonicParsing="false" onAction="#Classificacao" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Classificação" />
-      <Button fx:id="btnEstat" layoutX="539.0" layoutY="283.0" mnemonicParsing="false" onAction="#Estatisticas" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Estatísticas" />
+      <Button fx:id="btnJogadores" layoutX="612.0" layoutY="87.0" mnemonicParsing="false" onAction="#Jogador" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Jogadores" textFill="#030000">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button fx:id="btnArbitros" layoutX="612.0" layoutY="179.0" mnemonicParsing="false" onAction="#Arbitro" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Árbitros" textFill="#030000">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button fx:id="btnClubes" layoutX="14.0" layoutY="179.0" mnemonicParsing="false" onAction="#Clubes" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Clubes" textFill="#030000">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button fx:id="btnJornada" layoutX="14.0" layoutY="87.0" mnemonicParsing="false" onAction="#Jornada" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Jogo" textFill="#030000">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button fx:id="btnClassi" layoutX="14.0" layoutY="276.0" mnemonicParsing="false" onAction="#Classificacao" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Classificação" textFill="#030000">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button fx:id="btnEstat" layoutX="612.0" layoutY="276.0" mnemonicParsing="false" onAction="#Estatisticas" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Estatísticas" textFill="#030000">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
    </children>
 </AnchorPane>

@@ -36,11 +36,11 @@ public class ClubesController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
+    @FXML
     private void AdicionarClubes(ActionEvent event) throws IOException {
-        abrirJanela("/Views/AdicionarClubes.fxml", event);
+        abrirJanela("/Views/AdicionarClube.fxml", event);
     }
-
+    @FXML
     private void ConsultarClubes(ActionEvent event) throws IOException {
         abrirJanela("/Views/ConsultarClubes.fxml", event);
     }

@@ -6,17 +6,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="824.0" styleClass="bodybg" stylesheets="@Superliga.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdicionarArbitroController">
+<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="824.0" styleClass="bodybg" stylesheets="@Superliga.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdicionarArbitroController">
    <children>
-      <Button fx:id="btnAdicionar" layoutX="283.0" layoutY="444.0" mnemonicParsing="false" onAction="#addArbitro" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Adicionar" />
-      <Label layoutX="273.0" layoutY="14.0" prefHeight="38.0" prefWidth="254.0" text="Adicionar Arbitro">
+      <Button fx:id="btnAdicionar" layoutX="310.0" layoutY="462.0" mnemonicParsing="false" onAction="#addArbitro" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Adicionar" textFill="#030000">
          <font>
-            <Font size="26.0" />
+            <Font size="18.0" />
+         </font></Button>
+      <Label alignment="TOP_CENTER" layoutX="272.0" layoutY="14.0" prefHeight="53.0" prefWidth="301.0" text="Adicionar Arbitro" textAlignment="CENTER" textFill="#030000">
+         <font>
+            <Font size="36.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCodJogo" layoutX="262.0" layoutY="144.0" prefHeight="26.0" prefWidth="320.0" />
-      <Label layoutX="98.0" layoutY="148.0" text="Codigo de Jogo:" />
-      <TextField fx:id="txtNome" layoutX="262.0" layoutY="177.0" prefHeight="26.0" prefWidth="320.0" />
-      <Label layoutX="98.0" layoutY="181.0" text="Nome:" />
+      <TextField fx:id="txtCodJogo" layoutX="262.0" layoutY="140.0" prefHeight="35.0" prefWidth="448.0" />
+      <Label layoutX="125.0" layoutY="144.0" text="Codigo de Jogo:" textFill="#030000">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <TextField fx:id="txtNome" layoutX="262.0" layoutY="191.0" prefHeight="35.0" prefWidth="448.0" />
+      <Label layoutX="202.0" layoutY="195.0" text="Nome:" textFill="#030000">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
    </children>
 </AnchorPane>

@@ -70,8 +70,7 @@ ALTER TABLE Jogadores
 ADD CONSTRAINT fk_jogadores_clube FOREIGN KEY(cod_clube) REFERENCES Clubes(cod_clube)
 
 ALTER TABLE Jogo 
-ADD CONSTRAINT fk_jogo_jornada FOREIGN KEY(cod_jornada) REFERENCES Jornada(cod_jornada),
-CONSTRAINT fk_jogo_clubes FOREIGN KEY(equip_casa) REFERENCES Clubes(cod_clube),
+ADD CONSTRAINT fk_jogo_clubes FOREIGN KEY(equip_casa) REFERENCES Clubes(cod_clube),
 CONSTRAINT fk_jogo_clube FOREIGN KEY(cod_jornada) REFERENCES Clubes(cod_clube)
 
 ALTER TABLE Cartoes 

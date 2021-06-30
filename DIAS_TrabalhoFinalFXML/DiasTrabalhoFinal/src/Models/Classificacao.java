@@ -26,15 +26,6 @@ public Classificacao(int cod_equipa, int classificacao, int vitorias, int derrot
         this.pontos = pontos;
 }
 
-  public Classificacao() {
-    this.cod_equipa = cod_equipa;
-        this.classificacao = classificacao;
-        this.vitorias = vitorias;
-        this.derrotas = derrotas;
-        this.empates = empates;
-        this.pontos = pontos;
-  }
-
 
   /**
    * @return the cod_equipa

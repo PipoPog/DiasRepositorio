@@ -80,7 +80,7 @@ public class MenuPrincipalController implements Initializable {
 
     @FXML
     private void Classificacao(ActionEvent event) throws IOException {
-      abrirJanela("/Views/ConsultarClassificacao.fxml", event); 
+      abrirJanela("/Views/ConsultarClassificações.fxml", event); 
     }
 
     @FXML

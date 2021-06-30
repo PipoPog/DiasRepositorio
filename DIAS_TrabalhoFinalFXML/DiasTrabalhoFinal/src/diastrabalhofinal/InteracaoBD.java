@@ -39,7 +39,7 @@ public class InteracaoBD {
             + "(cod_jogo, cod_jogador, corcartao, tempo) VALUES"
             + "(?,?,?,?)";
     private static String queryAdicionarClube = "INSERT INTO Clubes"
-            + "(nome, pais, classificacao_anterior) VALUES"
+            + "(nome, pais) VALUES"
             + "(?,?,?)";
     private static String queryAdicionarGolos = "INSERT INTO Golos"
             + "(cod_jogo, golos_anulados, tempo, jogador) VALUES"
@@ -60,6 +60,7 @@ public class InteracaoBD {
     private String queryGetClassificacaoVit = "SELECT * FROM Classificacao ORDER BY vitorias DESC";
     private String queryGetClassificacaoDer = "SELECT * FROM Classificacao ORDER BY derrotas DESC";
     private String queryTodosClubes = "SELECT * FROM Clubes";
+    private String queryTodosClass = "SELECT * FROM Classificacao";
 
     public Connection conectarBaseDados() throws SQLException {
 
@@ -152,9 +153,8 @@ public class InteracaoBD {
         try {
             conexao = conectarBaseDados();
             pst = conexao.prepareStatement(queryAdicionarClube);
-            pst.setInt(1, clubeadicionar.getCodigoClube());
-            pst.setString(2, clubeadicionar.getNome());
-            pst.setString(3, clubeadicionar.getPais());
+            pst.setString(1, clubeadicionar.getNome());
+            pst.setString(2, clubeadicionar.getPais());
             pst.executeUpdate();
 
             JOptionPane.showMessageDialog(null, "Clube Adicionado");
@@ -684,7 +684,6 @@ public class InteracaoBD {
 
             while (rs.next()) {
                 Clubes ClubesAdicionar = new Clubes(
-                        rs.getInt("codigoClube"),
                         rs.getString("nome"),
                         rs.getString("pais"));
 
@@ -710,25 +709,19 @@ public class InteracaoBD {
         return listaClubes;
     }
 
-    public ArrayList<Clubes> getClubesPesquisa(String codigoClube, String nome) throws SQLException {
+    public ArrayList<Clubes> getClubesPesquisa(String nome) throws SQLException {
 
         ArrayList<Clubes> listaClubes = new ArrayList<>();
 
         Connection conexao = null;
         PreparedStatement pst = null;
 
-        String ComandoPesquisaClubes = "SELECT * FROM Clubes WHERE codigoClube LIKE '" + codigoClube + "%'";
-        String ComandoPesquisaClubes1 = "SELECT * FROM Clubes WHERE codigoClube LIKE '" + codigoClube + "%' AND `nome` LIKE '" + nome + "%'";
         String ComandoPesquisaClubes2 = "SELECT * FROM Clubes WHERE nome LIKE '" + nome + "%'";
 
         try {
-            if (!codigoClube.equals("") && nome.equals("")) {
-                pst = conexao.prepareStatement(ComandoPesquisaClubes);
-            } else if (!codigoClube.equals("") && !nome.equals("")) {
-                pst = conexao.prepareStatement(ComandoPesquisaClubes1);
-            } else if (!nome.equals("") && codigoClube.equals("")) {
+             if (!nome.equals("")) {
                 pst = conexao.prepareStatement(ComandoPesquisaClubes2);
-            } else if (nome.equals("") && codigoClube.equals("")) {
+            } else if (nome.equals("")) {
                 return getClubes(20);
             }
 
@@ -736,7 +729,6 @@ public class InteracaoBD {
 
             while (rs.next()) {
                 Clubes ClubesAdicionar = new Clubes(
-                        rs.getInt("codigoClube"),
                         rs.getString("nome"),
                         rs.getString("pais"));
                 listaClubes.add(ClubesAdicionar);
@@ -758,6 +750,45 @@ public class InteracaoBD {
 
         }
         return listaClubes;
+    }
+    
+   public ArrayList<Classificacao> getClas(int total) throws SQLException {
+        Connection conexao = conectarBaseDados();
+        PreparedStatement pst = null;
+        ArrayList<Classificacao> listaclassi = new ArrayList<>();
+        try {
+
+            pst = conexao.prepareStatement(queryTodosClass);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+               Classificacao derclassificacao = new Classificacao(
+                        rs.getInt("cod_equipa"),
+                        rs.getInt("classificacao"),
+                        rs.getInt("vitorias"),
+                        rs.getInt("derrotas"),
+                        rs.getInt("empates"),
+                        rs.getInt("pontos"));
+                listaclassi.add(derclassificacao);
+          
+            }
+
+        } catch (SQLException ex) {
+
+            System.out.println(ex.getMessage());
+
+        } finally {
+
+            if (pst != null) {
+                pst.close();
+            }
+
+            if (conexao != null) {
+                conexao.close();
+            }
+
+        }
+
+        return listaclassi;
     }
 
 }

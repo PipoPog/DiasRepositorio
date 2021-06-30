@@ -35,8 +35,6 @@ public class AdicionarClubeController implements Initializable {
     @FXML
     private TextField txtPais;
     @FXML
-    private TextField txtCodClube;
-    @FXML
     private Button btnAdicionar;
     InteracaoBD connect = new InteracaoBD();
 
@@ -51,7 +49,7 @@ public class AdicionarClubeController implements Initializable {
     @FXML
     private void addClube(ActionEvent event) throws SQLException, ParseException {
 
-           Clubes clubes = new Clubes(Integer.parseInt(txtCodClube.getText()), txtNomeClube.getText(), txtPais.getText());
+           Clubes clubes = new Clubes(txtNomeClube.getText(), txtPais.getText());
 
                 connect.adicionarClube(clubes);
                 ((Node) (event.getSource())).getScene().getWindow().hide();

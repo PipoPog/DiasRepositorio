@@ -11,8 +11,7 @@ package Models;
  * @author lucpe
  */
 public class Clubes {
- 
-    private int codigoClube;
+
     private String nome;
     private String pais;
     
@@ -23,25 +22,10 @@ public class Clubes {
  * @param nome
  * @param pais
  */
-    public Clubes(int codigoClube, String nome, String pais ) {
-        this.codigoClube = codigoClube;
+    public Clubes(String nome, String pais ) {
         this.nome = nome;
         this.pais = pais;
     }
-
-  /**
-   * @return the codigoClube
-   */
-  public int getCodigoClube() {
-    return codigoClube;
-  }
-
-  /**
-   * @param codigoClube the codigoClube to set
-   */
-  public void setCodigoClube(int codigoClube) {
-    this.codigoClube = codigoClube;
-  }
 
   /**
    * @return the nome
@@ -74,6 +58,6 @@ public class Clubes {
   
     public String toString() {
 
-        return "Clube{" + "codigoClube=" + codigoClube + ", nome=" + nome + ", País=" + pais + ", Jogador=" + " " +'}';
+        return "Clube{" + " nome=" + nome + ", País=" + pais +'}';
     }
 }

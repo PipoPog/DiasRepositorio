@@ -85,11 +85,6 @@ public class ConsultarClubesController implements Initializable {
         tableView.setMinWidth(1125);
         tableView.setMaxHeight(321);
 
-        TableColumn<String, Clubes> column1 = new TableColumn<>("Codigo Clube");
-        column1.setCellValueFactory(new PropertyValueFactory<>("codigoClube"));
-        column1.setMinWidth(365);
-        column1.setMaxWidth(365);
-
         TableColumn<Integer, Clubes> column2 = new TableColumn<>("Nome Clube");
         column2.setCellValueFactory(new PropertyValueFactory<>("nome"));
         column2.setMinWidth(150);
@@ -101,9 +96,7 @@ public class ConsultarClubesController implements Initializable {
         column3.setMaxWidth(150);
                 
         
-        
-        
-        tableView.getColumns().add(column1);
+       
         tableView.getColumns().add(column2);
         tableView.getColumns().add(column3);
        
@@ -119,7 +112,7 @@ public class ConsultarClubesController implements Initializable {
       @FXML
     private void atualizarTabela(ActionEvent event) {
         try {
-            TabelaClubes = listarClubesTabela(conexao.getClubesPesquisa(txtCodClube.getText(),txtNomeClube.getText()));
+            TabelaClubes = listarClubesTabela(conexao.getClubesPesquisa(txtNomeClube.getText()));
         } catch (SQLException ex) {
             Logger.getLogger(ConsultarJogoController.class.getName()).log(Level.SEVERE, null, ex);
         }

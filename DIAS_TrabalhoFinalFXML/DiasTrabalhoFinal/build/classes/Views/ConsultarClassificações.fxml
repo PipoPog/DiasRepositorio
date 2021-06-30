@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="698.0" prefWidth="1110.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ConsultarClassificaçõesController">
+   <stylesheets>
+      <URL value="@../../com/mycompany/projetofinaldias/Menus/Linguagem/Superliga.css" />
+      <URL value="@Superliga.css" />
+   </stylesheets>
+   <children>
+      <AnchorPane fx:id="PainelClass" layoutX="11.0" layoutY="105.0" prefHeight="586.0" prefWidth="1086.0" />
+      <Label layoutX="336.0" layoutY="14.0" prefHeight="54.0" prefWidth="393.0" text="Consultar Classificação" textFill="#030000">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
