@@ -11,14 +11,14 @@ public class Jogador {
     
     private int codClube;
     private String nome;
-    private DatePicker dataNascimento;
+    private java.sql.Date dataNascimento;
     private String posicao;
     private String nacionalidade;
     private String peDom;
   
     
    
-    public Jogador(int codClube, String nome, DatePicker dataNascimento, String posicao, String nacionalidade, String peDom){
+    public Jogador(int codClube, String nome, java.sql.Date dataNascimento, String posicao, String nacionalidade, String peDom){
         this.codClube = codClube;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
@@ -66,7 +66,7 @@ public class Jogador {
      * Metodo que devolve data de Nascimento
      * @return dataNascimento
      */
-    public DatePicker getDataNascimento() {
+    public java.sql.Date getDataNascimento() {
         return dataNascimento;
     }
     
@@ -74,7 +74,7 @@ public class Jogador {
      * Metodo que define data de Nascimento
      * @param dataNascimento 
      */
-    public void setdataNascimento(DatePicker dataNascimento) {
+    public void setdataNascimento(java.sql.Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
    
