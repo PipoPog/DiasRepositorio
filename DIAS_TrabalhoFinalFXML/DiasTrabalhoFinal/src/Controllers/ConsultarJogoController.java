@@ -75,9 +75,10 @@ public class ConsultarJogoController implements Initializable {
      public TableView listarJogoTabela(ArrayList<Jogo> listaJogo) throws SQLException {
 
         TableView tableView = new TableView();
-        tableView.setMaxWidth(1125);
-        tableView.setMinWidth(1125);
-        tableView.setMaxHeight(321);
+       tableView.setMaxWidth(1200);
+        tableView.setMinWidth(1200);
+        tableView.setMaxHeight(800);
+        tableView.setMinHeight(600);
 
         TableColumn<String, Jogo> column1 = new TableColumn<>("Codigo jogo");
         column1.setCellValueFactory(new PropertyValueFactory<>("cod_jornada"));

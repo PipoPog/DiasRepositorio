@@ -57,7 +57,8 @@ public class InteracaoBD {
     private String queryTodosArbitro = "SELECT * FROM Arbitros";
     private String queryTodosJogadores = "SELECT * FROM Jogadores";
     private String queryTodosJogos= "SELECT * FROM Jogo";
-    
+    private String queryGetClassificacaoVit = "SELECT * FROM Classificacao ORDER BY vitorias DESC";
+    private String queryGetClassificacaoDer = "SELECT * FROM Classificacao ORDER BY derrotas DESC";
     public Connection conectarBaseDados() throws SQLException {
 
         Connection Conexao = null;
@@ -241,12 +242,6 @@ public class InteracaoBD {
 
     public Classificacao getById(String id) throws SQLException {
         Connection conexao = conectarBaseDados();
-        int cod_equipa;
-        int classi;
-        int vit;
-        int der;
-        int empates;
-        int pontos;
         PreparedStatement pst = null;
         Classificacao classificacao = null;
         try {
@@ -596,4 +591,80 @@ public class InteracaoBD {
         }
         return listaJogo;
     } 
+        public ArrayList<Classificacao> getVit(int total) throws SQLException {
+        Connection conexao = conectarBaseDados();
+        PreparedStatement pst = null;
+        ArrayList<Classificacao> listaclassi = new ArrayList<>();
+        try {
+
+            pst = conexao.prepareStatement(queryGetClassificacaoVit);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+               Classificacao lisclassificacao = new Classificacao(
+                        rs.getInt("cod_equipa"),
+                        rs.getInt("classificacao"),
+                        rs.getInt("vitorias"),
+                        rs.getInt("derrotas"),
+                        rs.getInt("empates"),
+                        rs.getInt("pontos"));
+              
+                listaclassi.add(lisclassificacao);
+            }
+
+        } catch (SQLException ex) {
+
+            System.out.println(ex.getMessage());
+
+        } finally {
+
+            if (pst != null) {
+                pst.close();
+            }
+
+            if (conexao != null) {
+                conexao.close();
+            }
+
+        }
+
+        return listaclassi;
+    }
+        public ArrayList<Classificacao> getDer(int total) throws SQLException {
+        Connection conexao = conectarBaseDados();
+        PreparedStatement pst = null;
+        ArrayList<Classificacao> listaclassi = new ArrayList<>();
+        try {
+
+            pst = conexao.prepareStatement(queryGetClassificacaoDer);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+               Classificacao derclassificacao = new Classificacao(
+                        rs.getInt("cod_equipa"),
+                        rs.getInt("classificacao"),
+                        rs.getInt("vitorias"),
+                        rs.getInt("derrotas"),
+                        rs.getInt("empates"),
+                        rs.getInt("pontos"));
+                listaclassi.add(derclassificacao);
+          
+            }
+
+        } catch (SQLException ex) {
+
+            System.out.println(ex.getMessage());
+
+        } finally {
+
+            if (pst != null) {
+                pst.close();
+            }
+
+            if (conexao != null) {
+                conexao.close();
+            }
+
+        }
+
+        return listaclassi;
+    }
 }
