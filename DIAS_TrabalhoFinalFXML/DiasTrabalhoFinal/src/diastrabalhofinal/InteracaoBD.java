@@ -57,7 +57,10 @@ public class InteracaoBD {
     private String queryTodosArbitro = "SELECT * FROM Arbitros";
     private String queryTodosJogadores = "SELECT * FROM Jogadores";
     private String queryTodosJogos= "SELECT * FROM Jogo";
-    
+    private String queryGetClassificacaoVit = "SELECT * FROM Classificacao ORDER BY vitorias DESC";
+    private String queryGetClassificacaoDer = "SELECT * FROM Classificacao ORDER BY derrotas DESC";
+    private String queryTodosClubes = "SELECT * FROM Clubes";
+
     public Connection conectarBaseDados() throws SQLException {
 
         Connection Conexao = null;
@@ -241,12 +244,6 @@ public class InteracaoBD {
 
     public Classificacao getById(String id) throws SQLException {
         Connection conexao = conectarBaseDados();
-        int cod_equipa;
-        int classi;
-        int vit;
-        int der;
-        int empates;
-        int pontos;
         PreparedStatement pst = null;
         Classificacao classificacao = null;
         try {
@@ -596,4 +593,171 @@ public class InteracaoBD {
         }
         return listaJogo;
     } 
+        public ArrayList<Classificacao> getVit(int total) throws SQLException {
+        Connection conexao = conectarBaseDados();
+        PreparedStatement pst = null;
+        ArrayList<Classificacao> listaclassi = new ArrayList<>();
+        try {
+
+            pst = conexao.prepareStatement(queryGetClassificacaoVit);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+               Classificacao lisclassificacao = new Classificacao(
+                        rs.getInt("cod_equipa"),
+                        rs.getInt("classificacao"),
+                        rs.getInt("vitorias"),
+                        rs.getInt("derrotas"),
+                        rs.getInt("empates"),
+                        rs.getInt("pontos"));
+              
+                listaclassi.add(lisclassificacao);
+            }
+
+        } catch (SQLException ex) {
+
+            System.out.println(ex.getMessage());
+
+        } finally {
+
+            if (pst != null) {
+                pst.close();
+            }
+
+            if (conexao != null) {
+                conexao.close();
+            }
+
+        }
+
+        return listaclassi;
+    }
+        public ArrayList<Classificacao> getDer(int total) throws SQLException {
+        Connection conexao = conectarBaseDados();
+        PreparedStatement pst = null;
+        ArrayList<Classificacao> listaclassi = new ArrayList<>();
+        try {
+
+            pst = conexao.prepareStatement(queryGetClassificacaoDer);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+               Classificacao derclassificacao = new Classificacao(
+                        rs.getInt("cod_equipa"),
+                        rs.getInt("classificacao"),
+                        rs.getInt("vitorias"),
+                        rs.getInt("derrotas"),
+                        rs.getInt("empates"),
+                        rs.getInt("pontos"));
+                listaclassi.add(derclassificacao);
+          
+            }
+
+        } catch (SQLException ex) {
+
+            System.out.println(ex.getMessage());
+
+        } finally {
+
+            if (pst != null) {
+                pst.close();
+            }
+
+            if (conexao != null) {
+                conexao.close();
+            }
+
+        }
+
+        return listaclassi;
+    }
+        
+        
+ public ArrayList<Clubes> getClubes(int total) throws SQLException {
+        Connection conexao = conectarBaseDados();
+        PreparedStatement pst = null;
+
+        ArrayList<Clubes> listaClubes = new ArrayList<Clubes>();
+
+        try {
+
+            pst = conexao.prepareStatement(queryTodosClubes);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                Clubes ClubesAdicionar = new Clubes(
+                        rs.getInt("codigoClube"),
+                        rs.getString("nome"),
+                        rs.getString("pais"));
+
+                listaClubes.add(ClubesAdicionar);
+            }
+
+        } catch (SQLException ex) {
+
+            System.out.println(ex.getMessage());
+
+        } finally {
+
+            if (pst != null) {
+                pst.close();
+            }
+
+            if (conexao != null) {
+                conexao.close();
+            }
+
+        }
+
+        return listaClubes;
+    }
+
+    public ArrayList<Clubes> getClubesPesquisa(String codigoClube, String nome) throws SQLException {
+
+        ArrayList<Clubes> listaClubes = new ArrayList<>();
+
+        Connection conexao = null;
+        PreparedStatement pst = null;
+
+        String ComandoPesquisaClubes = "SELECT * FROM Clubes WHERE codigoClube LIKE '" + codigoClube + "%'";
+        String ComandoPesquisaClubes1 = "SELECT * FROM Clubes WHERE codigoClube LIKE '" + codigoClube + "%' AND `nome` LIKE '" + nome + "%'";
+        String ComandoPesquisaClubes2 = "SELECT * FROM Clubes WHERE nome LIKE '" + nome + "%'";
+
+        try {
+            if (!codigoClube.equals("") && nome.equals("")) {
+                pst = conexao.prepareStatement(ComandoPesquisaClubes);
+            } else if (!codigoClube.equals("") && !nome.equals("")) {
+                pst = conexao.prepareStatement(ComandoPesquisaClubes1);
+            } else if (!nome.equals("") && codigoClube.equals("")) {
+                pst = conexao.prepareStatement(ComandoPesquisaClubes2);
+            } else if (nome.equals("") && codigoClube.equals("")) {
+                return getClubes(20);
+            }
+
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                Clubes ClubesAdicionar = new Clubes(
+                        rs.getInt("codigoClube"),
+                        rs.getString("nome"),
+                        rs.getString("pais"));
+                listaClubes.add(ClubesAdicionar);
+            }
+
+        } catch (SQLException ex) {
+
+            System.out.println(ex.getMessage());
+
+        } finally {
+
+            if (pst != null) {
+                pst.close();
+            }
+
+            if (conexao != null) {
+                conexao.close();
+            }
+
+        }
+        return listaClubes;
+    }
+
 }

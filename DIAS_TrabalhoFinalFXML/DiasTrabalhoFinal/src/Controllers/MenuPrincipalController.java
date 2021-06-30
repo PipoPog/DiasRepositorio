@@ -72,18 +72,20 @@ public class MenuPrincipalController implements Initializable {
         Parent root = (Parent) fxml.load();
         Stage stage = new Stage();
         stage.setTitle("Rato Esquilo - Gestão da Superliga");
-        stage.setScene(new Scene(root, 829, 550));
+        stage.setScene(new Scene(root, 1500, 850));
         stage.setResizable(false);
         stage.show();
 
     }
 
     @FXML
-    private void Classificacao(ActionEvent event) {
+    private void Classificacao(ActionEvent event) throws IOException {
+      abrirJanela("/Views/ConsultarClassificacao.fxml", event); 
     }
 
     @FXML
-    private void Estatisticas(ActionEvent event) {
+    private void Estatisticas(ActionEvent event) throws IOException {
+      abrirJanela("/Views/ConsultarEstatisticas.fxml", event);
     }
   
 }
