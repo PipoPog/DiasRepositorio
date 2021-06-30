@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -22,21 +23,11 @@ import javafx.scene.control.TextField;
 public class ConsultarJogadoresController implements Initializable {
 
     @FXML
-    private Button btnVoltar;
-    @FXML
-    private TableView<?> idTableView;
-    @FXML
-    private TableColumn<?, ?> idNome;
-    @FXML
-    private TableColumn<?, ?> idCodigo;
-    @FXML
-    private TableColumn<?, ?> idIdade;
-    @FXML
     private TextField idTxtPesquisar;
     @FXML
     private Button idBtnPesquisar;
     @FXML
-    private Button btnEditarJogador;
+    private AnchorPane PainelJogadores;
 
     /**
      * Initializes the controller class.

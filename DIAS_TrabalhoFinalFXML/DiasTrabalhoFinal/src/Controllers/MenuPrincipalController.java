@@ -32,6 +32,10 @@ public class MenuPrincipalController implements Initializable {
   private Button btnClubes;
   @FXML
   private Button btnJornada;
+    @FXML
+    private Button btnClassi;
+    @FXML
+    private Button btnEstat;
 
   /**
    * Initializes the controller class.
@@ -72,6 +76,14 @@ public class MenuPrincipalController implements Initializable {
         stage.setResizable(false);
         stage.show();
 
+    }
+
+    @FXML
+    private void Classificacao(ActionEvent event) {
+    }
+
+    @FXML
+    private void Estatisticas(ActionEvent event) {
     }
   
 }

@@ -26,8 +26,6 @@ import javafx.stage.Stage;
 public class ArbitroController implements Initializable {
 
     @FXML
-    private Button btnVoltar;
-    @FXML
     private Button btnAdicionarArbitro;
     @FXML
     private Button btnConsultarArbitro;
@@ -60,9 +58,5 @@ public class ArbitroController implements Initializable {
         stage.setResizable(false);
         stage.show();
 
-    }
-    @FXML
-    private void voltar(ActionEvent event) throws IOException {
-      
     }
 }

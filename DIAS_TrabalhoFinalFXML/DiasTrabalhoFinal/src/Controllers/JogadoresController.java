@@ -22,11 +22,9 @@ import javafx.stage.Stage;
 public class JogadoresController implements Initializable {
 
     @FXML
-    private Button btnVoltar;
+    private Button btnConsultarJogadores;
     @FXML
-    private Button btnConsultarJogo;
-    @FXML
-    private Button btnAdicionarJogo;
+    private Button btnAdicionarJogadores;
 
     /**
      * Initializes the controller class.
