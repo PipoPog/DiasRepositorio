@@ -7,13 +7,23 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ArbitroController">
    <children>
-      <AnchorPane prefHeight="547.0" prefWidth="824.0" styleClass="bodybg" stylesheets="@Superliga.css" />
-      <Button fx:id="btnAdicionarArbitro" layoutX="24.0" layoutY="97.0" mnemonicParsing="false" onAction="#AdicionarArbitro" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Adicionar Árbitro" />
-      <Button fx:id="btnConsultarArbitro" layoutX="549.0" layoutY="97.0" mnemonicParsing="false" onAction="#ConsultarArbitro" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Consultar Árbitro" />
-      <Label layoutX="317.0" layoutY="19.0" prefHeight="38.0" prefWidth="282.0" text="Gestão De Árbitro">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Label>
+      <AnchorPane prefHeight="547.0" prefWidth="824.0" styleClass="bodybg" stylesheets="@Superliga.css">
+         <children>
+            <Label alignment="TOP_CENTER" layoutX="253.0" layoutY="14.0" prefHeight="53.0" prefWidth="319.0" text="Gestão De Árbitro" textFill="#030000">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnConsultarArbitro" layoutX="572.0" layoutY="203.0" mnemonicParsing="false" onAction="#ConsultarArbitro" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Consultar Árbitro" textFill="#030000">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnAdicionarArbitro" layoutX="54.0" layoutY="203.0" mnemonicParsing="false" onAction="#AdicionarArbitro" prefHeight="71.0" prefWidth="205.0" style="-fx-background-color: Marine; -fx-border-color: Purple;" text="Adicionar Árbitro" textFill="#030000">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
    </children>
 </AnchorPane>
