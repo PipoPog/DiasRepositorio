@@ -25,7 +25,7 @@ import javax.swing.JOptionPane;
 public class InteracaoBD{
    // Variaveis base de dados
     private final String Driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    private final String dbURL = "jdbc:sqlserver://LAPTOP-170EEDEO\\SQLEXPRESS;databaseName=SLEuropeia;integratedSecurity=true";
+    private final String dbURL = "jdbc:sqlserver://localhost\\SQLEXPRESS;databaseName=SLEuropeia;integratedSecurity=true";
 
     
     //Querys
@@ -238,7 +238,12 @@ public void Classificacaoupdate(Classificacao classificacao) throws SQLException
     }
     public Classificacao getById(String id) throws SQLException {
         Connection conexao = conectarBaseDados();
-
+        int cod_equipa;
+        int classi;
+        int vit;
+        int der;
+        int empates;
+        int pontos;        
         PreparedStatement pst = null;
         Classificacao classificacao = null;
         try {
@@ -254,7 +259,12 @@ public void Classificacaoupdate(Classificacao classificacao) throws SQLException
                         rs.getInt("derrotas"),
                         rs.getInt("empates"),
                         rs.getInt("pontos"));
-
+                cod_equipa =rs.getInt("cod_equipa");
+                classi =rs.getInt("classificacao");
+                vit=rs.getInt("vitorias");
+                der=rs.getInt("derrotas");
+                empates=rs.getInt("empates");
+                pontos = rs.getInt("pontos");
             }
 
         } catch (SQLException ex) {
