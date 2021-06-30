@@ -385,12 +385,12 @@ public class InteracaoBD {
 
             while (rs.next()) {
                 Jogador JogadoresAdicionar = new Jogador(
-                        rs.getInt("codClube"),
+                        rs.getInt("cod_clube"),
                         rs.getString("nome"),
-                        rs.getDate("dataNascimento"),
+                        rs.getDate("datanascimento"),
                         rs.getString("posicao"),
                         rs.getString("nacionalidade"),
-                        rs.getString("peDom")
+                        rs.getString("pe_dominante")
                 );
                 listaJogadores.add(JogadoresAdicionar);
             }
@@ -421,9 +421,9 @@ public class InteracaoBD {
         Connection conexao = null;
         PreparedStatement pst = null;
 
-        String ComandoPesquisaJogadores = "SELECT * FROM Arbitros WHERE cod_jogo LIKE '" + codClube + "%'";
-        String ComandoPesquisaJogadores1 = "SELECT * FROM Arbitros WHERE cod_jogo LIKE '" + codClube + "%' AND `nome` LIKE '" + nome + "%'";
-        String ComandoPesquisaJogadores2 = "SELECT * FROM Arbitros WHERE nome LIKE '" + nome + "%'";
+        String ComandoPesquisaJogadores = "SELECT * FROM Jogadores WHERE cod_clube LIKE '" + codClube + "%'";
+        String ComandoPesquisaJogadores1 = "SELECT * FROM Jogadores WHERE cod_clube LIKE '" + codClube + "%' AND `nome` LIKE '" + nome + "%'";
+        String ComandoPesquisaJogadores2 = "SELECT * FROM Jogadores WHERE nome LIKE '" + nome + "%'";
 
         try {
             conexao = conectarBaseDados();
@@ -440,12 +440,12 @@ public class InteracaoBD {
 
             while (rs.next()) {
                 Jogador JogadoresAdicionar = new Jogador(
-                        rs.getInt("codClube"),
+                        rs.getInt("cod_clube"),
                         rs.getString("nome"),
-                        rs.getDate("dataNascimento"),
+                        rs.getDate("datanascimento"),
                         rs.getString("posicao"),
                         rs.getString("nacionalidade"),
-                        rs.getString("peDom")
+                        rs.getString("pe_dominante")
                 );
                 listaJogadores.add(JogadoresAdicionar);
             }

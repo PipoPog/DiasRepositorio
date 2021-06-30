@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="906.0" prefWidth="1586.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ConsultarJogadoresController">
+<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1580.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ConsultarJogadoresController">
    <children>
       <Label layoutX="648.0" layoutY="14.0" prefHeight="38.0" prefWidth="282.0" text="Gestão De Jogadores">
          <font>
@@ -14,10 +14,10 @@
          </font>
       </Label>
       <AnchorPane fx:id="PainelJogadores" layoutX="51.0" layoutY="137.0" prefHeight="706.0" prefWidth="1476.0" />
-      <Label layoutX="42.0" layoutY="67.0" text="Cod_Clube" />
-      <TextField fx:id="txtCodClube" layoutX="106.0" layoutY="63.0" onAction="#atualizarTabela" />
-      <Label layoutX="272.0" layoutY="67.0" text="Nome" />
-      <TextField fx:id="txtNome" layoutX="313.0" layoutY="63.0" onAction="#atualizarTabela" />
+      <Label layoutX="42.0" layoutY="67.0" prefHeight="18.0" prefWidth="76.0" text="Cod_Clube" />
+      <TextField fx:id="txtCodClube" layoutX="126.0" layoutY="63.0" onAction="#atualizarTabela" />
+      <Label layoutX="355.0" layoutY="66.0" prefHeight="18.0" prefWidth="58.0" text="Nome" />
+      <TextField fx:id="txtNome" layoutX="432.0" layoutY="63.0" onAction="#atualizarTabela" />
    </children>
    <stylesheets>
       <URL value="@../../com/mycompany/projetofinaldias/Menus/Linguagem/Superliga.css" />

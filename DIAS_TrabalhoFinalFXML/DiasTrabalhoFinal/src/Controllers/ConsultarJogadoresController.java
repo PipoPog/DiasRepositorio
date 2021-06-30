@@ -65,7 +65,7 @@ public class ConsultarJogadoresController implements Initializable {
         Parent root = (Parent) fxml.load();
         Stage stage = new Stage();
         stage.setTitle("Rato-Esquilo - Gestor da Superliga");
-        stage.setScene(new Scene(root, 1200, 800));
+        stage.setScene(new Scene(root, 1580, 900));
         stage.setResizable(false);
 
         stage.show();
@@ -75,39 +75,40 @@ public class ConsultarJogadoresController implements Initializable {
     public TableView listarJogadoresTabela(ArrayList<Jogador> listaJogadores) throws SQLException {
 
         TableView tableView = new TableView();
-        tableView.setMaxWidth(1125);
-        tableView.setMinWidth(1125);
-        tableView.setMaxHeight(321);
+        tableView.setMaxWidth(1200);
+        tableView.setMinWidth(1200);
+        tableView.setMaxHeight(800);
+        tableView.setMinHeight(600);
 
-        TableColumn<Integer, Jogador> column1 = new TableColumn<>("Código Clube");
+        TableColumn<Integer, Jogador> column1 = new TableColumn<>("CódigoClube");
         column1.setCellValueFactory(new PropertyValueFactory<>("codClube"));
-        column1.setMinWidth(365);
-        column1.setMaxWidth(365);
+        column1.setMinWidth(200);
+        column1.setMaxWidth(200);
 
         TableColumn<String, Jogador> column2 = new TableColumn<>("Nome");
         column2.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        column2.setMinWidth(150);
-        column2.setMaxWidth(150);
+        column2.setMinWidth(200);
+        column2.setMaxWidth(200);
 
         TableColumn<String, Jogador> column3 = new TableColumn<>("Data de Nascimento");
         column3.setCellValueFactory(new PropertyValueFactory<>("dataNascimento"));
-        column3.setMinWidth(150);
-        column3.setMaxWidth(150);
+        column3.setMinWidth(200);
+        column3.setMaxWidth(200);
 
         TableColumn<String, Jogador> column4 = new TableColumn<>("Posição");
         column4.setCellValueFactory(new PropertyValueFactory<>("posicao"));
-        column4.setMinWidth(150);
-        column4.setMaxWidth(150);
+        column4.setMinWidth(200);
+        column4.setMaxWidth(200);
 
         TableColumn<String, Jogador> column5 = new TableColumn<>("Nacionalidade");
         column5.setCellValueFactory(new PropertyValueFactory<>("nacionalidade"));
-        column5.setMinWidth(150);
-        column5.setMaxWidth(150);
+        column5.setMinWidth(200);
+        column5.setMaxWidth(200);
 
         TableColumn<String, Jogador> column6 = new TableColumn<>("Pé Dominante");
         column6.setCellValueFactory(new PropertyValueFactory<>("peDom"));
-        column6.setMinWidth(150);
-        column6.setMaxWidth(150);
+        column6.setMinWidth(200);
+        column6.setMaxWidth(200);
 
         tableView.getColumns().add(column1);
         tableView.getColumns().add(column2);

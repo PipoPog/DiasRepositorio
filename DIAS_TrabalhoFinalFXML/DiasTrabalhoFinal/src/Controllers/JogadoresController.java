@@ -33,11 +33,11 @@ public class JogadoresController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
+    @FXML
     private void AdicionarJogador(ActionEvent event) throws IOException {
         abrirJanela("/Views/CriarJogador.fxml", event);
     }
-
+    @FXML
     private void ConsultarJogador(ActionEvent event) throws IOException {
         abrirJanela("/Views/ConsultarJogadores.fxml", event);
     }
@@ -48,7 +48,7 @@ public class JogadoresController implements Initializable {
         Parent root = (Parent) fxml.load();
         Stage stage = new Stage();
         stage.setTitle("Rato Esquilo - Gestão da Superliga");
-        stage.setScene(new Scene(root, 829, 550));
+        stage.setScene(new Scene(root, 1580, 800));
         stage.setResizable(false);
         stage.show();
 
